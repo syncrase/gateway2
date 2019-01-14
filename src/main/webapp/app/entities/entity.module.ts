@@ -17,6 +17,10 @@ import { Gateway2TypeTerreModule as BackendTypeTerreModule } from './backend/typ
 import { Gateway2TypeFeuillageModule as BackendTypeFeuillageModule } from './backend/type-feuillage/type-feuillage.module';
 import { Gateway2TypeRacineModule as BackendTypeRacineModule } from './backend/type-racine/type-racine.module';
 import { Gateway2MoisModule as BackendMoisModule } from './backend/mois/mois.module';
+import { Gateway2PlanteModule } from './plante/plante.module';
+import { Gateway2RecolteModule } from './recolte/recolte.module';
+import { Gateway2FloraisonModule } from './floraison/floraison.module';
+import { Gateway2MoisModule } from './mois/mois.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
@@ -39,6 +43,10 @@ import { Gateway2MoisModule as BackendMoisModule } from './backend/mois/mois.mod
         BackendTypeFeuillageModule,
         BackendTypeRacineModule,
         BackendMoisModule,
+        Gateway2PlanteModule,
+        Gateway2RecolteModule,
+        Gateway2FloraisonModule,
+        Gateway2MoisModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],
