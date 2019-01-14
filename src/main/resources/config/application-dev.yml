@@ -125,8 +125,8 @@ jhipster:
     security:
         authentication:
             jwt:
-                # This token must be encoded using Base64 and be at least 256 bits long (you can type `openssl rand -base64 64` on your command line to generate a 512 bits one)
-                base64-secret: NjNjMjcyNDMxZDA0MWU2ZTgxNGJlZjRhYmYzYWM3MmM4OWNlY2UxNDUyYWRlNjEzNjZlZjFiNmFkNmVjZGU0MWNjMzlmMTg1ZmFmNTRjOGE4ZjgwNzhkMzcwNzk1YTU5YTE0YjA2M2Q0NWYzODM4ZGYzNDNhMGExNGM0MjkzZjM=
+                # This token must be encoded using Base64 and be at least 256 bits long (you can type `openssl rand -base64 64` on your command line to generate a 512 bits one) NjNjMjcyNDMxZDA0MWU2ZTgxNGJlZjRhYmYzYWM3MmM4OWNlY2UxNDUyYWRlNjEzNjZlZjFiNmFkNmVjZGU0MWNjMzlmMTg1ZmFmNTRjOGE4ZjgwNzhkMzcwNzk1YTU5YTE0YjA2M2Q0NWYzODM4ZGYzNDNhMGExNGM0MjkzZjM=
+                base64-secret: MmQxMWFlMDhmZTVhMGI5MzBkYzg1YmQ0NjYwY2YzMWFjNzZkYTYyOGU0MDMxOWVlNjlkZmQxMTk4ZjZkZWU5MzcxZWU4MmJjZWE2YjRkZmVhNmY3MzNkNjg0OWM2ZTc4MTA1OWMzNTEzNzJmNjM1MGQwMDAzMjc4MTIyY2JiNzY=
                 # Token is valid 24 hours
                 token-validity-in-seconds: 86400
                 token-validity-in-seconds-for-remember-me: 2592000
