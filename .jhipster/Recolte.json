@@ -1,0 +1,28 @@
+{
+    "name": "Recolte",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "plante",
+            "otherEntityName": "plante",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "mois",
+            "otherEntityName": "mois",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190115185529",
+    "entityTableName": "recolte",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "microserviceName": "backend"
+}
