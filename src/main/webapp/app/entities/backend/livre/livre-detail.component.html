@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="livre">
+            <h2><span>Livre</span> {{livre.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Description</span></dt>
+                <dd>
+                    <span>{{livre.description}}</span>
+                </dd>
+                <dt><span>Isbn</span></dt>
+                <dd>
+                    <span>{{livre.isbn}}</span>
+                </dd>
+                <dt><span>Auteur</span></dt>
+                <dd>
+                    <span>{{livre.auteur}}</span>
+                </dd>
+                <dt><span>Page</span></dt>
+                <dd>
+                    <span>{{livre.page}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/livre', livre.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

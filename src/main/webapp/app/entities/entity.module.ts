@@ -17,6 +17,9 @@ import { Gateway2RichesseSolModule as BackendRichesseSolModule } from './backend
 import { Gateway2TypeTerreModule as BackendTypeTerreModule } from './backend/type-terre/type-terre.module';
 import { Gateway2TypeFeuillageModule as BackendTypeFeuillageModule } from './backend/type-feuillage/type-feuillage.module';
 import { Gateway2TypeRacineModule as BackendTypeRacineModule } from './backend/type-racine/type-racine.module';
+import { Gateway2ReferenceModule as BackendReferenceModule } from './backend/reference/reference.module';
+import { Gateway2LivreModule as BackendLivreModule } from './backend/livre/livre.module';
+import { Gateway2PageWebModule as BackendPageWebModule } from './backend/page-web/page-web.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
@@ -39,6 +42,9 @@ import { Gateway2TypeRacineModule as BackendTypeRacineModule } from './backend/t
         BackendTypeTerreModule,
         BackendTypeFeuillageModule,
         BackendTypeRacineModule,
+        BackendReferenceModule,
+        BackendLivreModule,
+        BackendPageWebModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],

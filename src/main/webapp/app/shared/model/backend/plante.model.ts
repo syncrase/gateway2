@@ -1,4 +1,6 @@
 import { IClassificationCronquist } from 'app/shared/model/backend/classification-cronquist.model';
+import { IRecolte } from 'app/shared/model/backend/recolte.model';
+import { IFloraison } from 'app/shared/model/backend/floraison.model';
 import { IStrate } from 'app/shared/model/backend/strate.model';
 import { IVitesseCroissance } from 'app/shared/model/backend/vitesse-croissance.model';
 import { IEnsoleillement } from 'app/shared/model/backend/ensoleillement.model';
@@ -6,8 +8,6 @@ import { IRichesseSol } from 'app/shared/model/backend/richesse-sol.model';
 import { ITypeTerre } from 'app/shared/model/backend/type-terre.model';
 import { ITypeFeuillage } from 'app/shared/model/backend/type-feuillage.model';
 import { ITypeRacine } from 'app/shared/model/backend/type-racine.model';
-import { IRecolte } from 'app/shared/model/backend/recolte.model';
-import { IFloraison } from 'app/shared/model/backend/floraison.model';
 
 export interface IPlante {
     id?: number;
@@ -16,6 +16,8 @@ export interface IPlante {
     tempMin?: number;
     tempMax?: number;
     classificationCronquist?: IClassificationCronquist;
+    recoltes?: IRecolte[];
+    floraisons?: IFloraison[];
     strate?: IStrate;
     vitesseCroissance?: IVitesseCroissance;
     ensoleillement?: IEnsoleillement;
@@ -23,8 +25,6 @@ export interface IPlante {
     typeTerre?: ITypeTerre;
     typeFeuillage?: ITypeFeuillage;
     typeRacine?: ITypeRacine;
-    recoltes?: IRecolte[];
-    floraisons?: IFloraison[];
 }
 
 export class Plante implements IPlante {
@@ -35,14 +35,14 @@ export class Plante implements IPlante {
         public tempMin?: number,
         public tempMax?: number,
         public classificationCronquist?: IClassificationCronquist,
+        public recoltes?: IRecolte[],
+        public floraisons?: IFloraison[],
         public strate?: IStrate,
         public vitesseCroissance?: IVitesseCroissance,
         public ensoleillement?: IEnsoleillement,
         public richesseSol?: IRichesseSol,
         public typeTerre?: ITypeTerre,
         public typeFeuillage?: ITypeFeuillage,
-        public typeRacine?: ITypeRacine,
-        public recoltes?: IRecolte[],
-        public floraisons?: IFloraison[]
+        public typeRacine?: ITypeRacine
     ) {}
 }

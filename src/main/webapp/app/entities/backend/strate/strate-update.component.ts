@@ -2,12 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { JhiAlertService } from 'ng-jhipster';
 
 import { IStrate } from 'app/shared/model/backend/strate.model';
 import { StrateService } from './strate.service';
-import { IPlante } from 'app/shared/model/backend/plante.model';
-import { PlanteService } from 'app/entities/backend/plante';
 
 @Component({
     selector: 'jhi-strate-update',
@@ -17,26 +14,13 @@ export class StrateUpdateComponent implements OnInit {
     strate: IStrate;
     isSaving: boolean;
 
-    plantes: IPlante[];
-
-    constructor(
-        protected jhiAlertService: JhiAlertService,
-        protected strateService: StrateService,
-        protected planteService: PlanteService,
-        protected activatedRoute: ActivatedRoute
-    ) {}
+    constructor(protected strateService: StrateService, protected activatedRoute: ActivatedRoute) {}
 
     ngOnInit() {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ strate }) => {
             this.strate = strate;
         });
-        this.planteService.query().subscribe(
-            (res: HttpResponse<IPlante[]>) => {
-                this.plantes = res.body;
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
     }
 
     previousState() {
@@ -63,13 +47,5 @@ export class StrateUpdateComponent implements OnInit {
 
     protected onSaveError() {
         this.isSaving = false;
-    }
-
-    protected onError(errorMessage: string) {
-        this.jhiAlertService.error(errorMessage, null, null);
-    }
-
-    trackPlanteById(index: number, item: IPlante) {
-        return item.id;
     }
 }

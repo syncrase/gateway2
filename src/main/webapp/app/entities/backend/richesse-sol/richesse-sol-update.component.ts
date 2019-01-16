@@ -2,12 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { JhiAlertService } from 'ng-jhipster';
 
 import { IRichesseSol } from 'app/shared/model/backend/richesse-sol.model';
 import { RichesseSolService } from './richesse-sol.service';
-import { IPlante } from 'app/shared/model/backend/plante.model';
-import { PlanteService } from 'app/entities/backend/plante';
 
 @Component({
     selector: 'jhi-richesse-sol-update',
@@ -17,26 +14,13 @@ export class RichesseSolUpdateComponent implements OnInit {
     richesseSol: IRichesseSol;
     isSaving: boolean;
 
-    plantes: IPlante[];
-
-    constructor(
-        protected jhiAlertService: JhiAlertService,
-        protected richesseSolService: RichesseSolService,
-        protected planteService: PlanteService,
-        protected activatedRoute: ActivatedRoute
-    ) {}
+    constructor(protected richesseSolService: RichesseSolService, protected activatedRoute: ActivatedRoute) {}
 
     ngOnInit() {
         this.isSaving = false;
         this.activatedRoute.data.subscribe(({ richesseSol }) => {
             this.richesseSol = richesseSol;
         });
-        this.planteService.query().subscribe(
-            (res: HttpResponse<IPlante[]>) => {
-                this.plantes = res.body;
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
     }
 
     previousState() {
@@ -63,13 +47,5 @@ export class RichesseSolUpdateComponent implements OnInit {
 
     protected onSaveError() {
         this.isSaving = false;
-    }
-
-    protected onError(errorMessage: string) {
-        this.jhiAlertService.error(errorMessage, null, null);
-    }
-
-    trackPlanteById(index: number, item: IPlante) {
-        return item.id;
     }
 }

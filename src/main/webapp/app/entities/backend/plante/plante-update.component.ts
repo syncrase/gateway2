@@ -81,108 +81,45 @@ export class PlanteUpdateComponent implements OnInit {
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
-        this.strateService.query({ filter: 'plante-is-null' }).subscribe(
+        this.strateService.query().subscribe(
             (res: HttpResponse<IStrate[]>) => {
-                if (!this.plante.strate || !this.plante.strate.id) {
-                    this.strates = res.body;
-                } else {
-                    this.strateService.find(this.plante.strate.id).subscribe(
-                        (subRes: HttpResponse<IStrate>) => {
-                            this.strates = [subRes.body].concat(res.body);
-                        },
-                        (subRes: HttpErrorResponse) => this.onError(subRes.message)
-                    );
-                }
+                this.strates = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
-        this.vitesseCroissanceService.query({ filter: 'plante-is-null' }).subscribe(
+        this.vitesseCroissanceService.query().subscribe(
             (res: HttpResponse<IVitesseCroissance[]>) => {
-                if (!this.plante.vitesseCroissance || !this.plante.vitesseCroissance.id) {
-                    this.vitessecroissances = res.body;
-                } else {
-                    this.vitesseCroissanceService.find(this.plante.vitesseCroissance.id).subscribe(
-                        (subRes: HttpResponse<IVitesseCroissance>) => {
-                            this.vitessecroissances = [subRes.body].concat(res.body);
-                        },
-                        (subRes: HttpErrorResponse) => this.onError(subRes.message)
-                    );
-                }
+                this.vitessecroissances = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
-        this.ensoleillementService.query({ filter: 'plante-is-null' }).subscribe(
+        this.ensoleillementService.query().subscribe(
             (res: HttpResponse<IEnsoleillement[]>) => {
-                if (!this.plante.ensoleillement || !this.plante.ensoleillement.id) {
-                    this.ensoleillements = res.body;
-                } else {
-                    this.ensoleillementService.find(this.plante.ensoleillement.id).subscribe(
-                        (subRes: HttpResponse<IEnsoleillement>) => {
-                            this.ensoleillements = [subRes.body].concat(res.body);
-                        },
-                        (subRes: HttpErrorResponse) => this.onError(subRes.message)
-                    );
-                }
+                this.ensoleillements = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
-        this.richesseSolService.query({ filter: 'plante-is-null' }).subscribe(
+        this.richesseSolService.query().subscribe(
             (res: HttpResponse<IRichesseSol[]>) => {
-                if (!this.plante.richesseSol || !this.plante.richesseSol.id) {
-                    this.richessesols = res.body;
-                } else {
-                    this.richesseSolService.find(this.plante.richesseSol.id).subscribe(
-                        (subRes: HttpResponse<IRichesseSol>) => {
-                            this.richessesols = [subRes.body].concat(res.body);
-                        },
-                        (subRes: HttpErrorResponse) => this.onError(subRes.message)
-                    );
-                }
+                this.richessesols = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
-        this.typeTerreService.query({ filter: 'plante-is-null' }).subscribe(
+        this.typeTerreService.query().subscribe(
             (res: HttpResponse<ITypeTerre[]>) => {
-                if (!this.plante.typeTerre || !this.plante.typeTerre.id) {
-                    this.typeterres = res.body;
-                } else {
-                    this.typeTerreService.find(this.plante.typeTerre.id).subscribe(
-                        (subRes: HttpResponse<ITypeTerre>) => {
-                            this.typeterres = [subRes.body].concat(res.body);
-                        },
-                        (subRes: HttpErrorResponse) => this.onError(subRes.message)
-                    );
-                }
+                this.typeterres = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
-        this.typeFeuillageService.query({ filter: 'plante-is-null' }).subscribe(
+        this.typeFeuillageService.query().subscribe(
             (res: HttpResponse<ITypeFeuillage[]>) => {
-                if (!this.plante.typeFeuillage || !this.plante.typeFeuillage.id) {
-                    this.typefeuillages = res.body;
-                } else {
-                    this.typeFeuillageService.find(this.plante.typeFeuillage.id).subscribe(
-                        (subRes: HttpResponse<ITypeFeuillage>) => {
-                            this.typefeuillages = [subRes.body].concat(res.body);
-                        },
-                        (subRes: HttpErrorResponse) => this.onError(subRes.message)
-                    );
-                }
+                this.typefeuillages = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
-        this.typeRacineService.query({ filter: 'plante-is-null' }).subscribe(
+        this.typeRacineService.query().subscribe(
             (res: HttpResponse<ITypeRacine[]>) => {
-                if (!this.plante.typeRacine || !this.plante.typeRacine.id) {
-                    this.typeracines = res.body;
-                } else {
-                    this.typeRacineService.find(this.plante.typeRacine.id).subscribe(
-                        (subRes: HttpResponse<ITypeRacine>) => {
-                            this.typeracines = [subRes.body].concat(res.body);
-                        },
-                        (subRes: HttpErrorResponse) => this.onError(subRes.message)
-                    );
-                }
+                this.typeracines = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );

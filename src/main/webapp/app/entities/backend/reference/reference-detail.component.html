@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="reference">
+            <h2><span>Reference</span> {{reference.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Description</span></dt>
+                <dd>
+                    <span>{{reference.description}}</span>
+                </dd>
+                <dt><span>Livre</span></dt>
+                <dd>
+                    <div *ngIf="reference.livre">
+                        <a [routerLink]="['/livre', reference.livre?.id, 'view']">{{reference.livre?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Page Web</span></dt>
+                <dd>
+                    <div *ngIf="reference.pageWeb">
+                        <a [routerLink]="['/page-web', reference.pageWeb?.id, 'view']">{{reference.pageWeb?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Interaction Plante Plante</span></dt>
+                <dd>
+                    <div *ngIf="reference.interactionPlantePlante">
+                        <a [routerLink]="['/interaction-plante-plante', reference.interactionPlantePlante?.id, 'view']">{{reference.interactionPlantePlante?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/reference', reference.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
