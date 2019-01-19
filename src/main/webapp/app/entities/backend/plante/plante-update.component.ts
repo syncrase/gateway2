@@ -66,18 +66,9 @@ export class PlanteUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ plante }) => {
             this.plante = plante;
         });
-        this.classificationCronquistService.query({ filter: 'plante-is-null' }).subscribe(
+        this.classificationCronquistService.query().subscribe(
             (res: HttpResponse<IClassificationCronquist[]>) => {
-                if (!this.plante.classificationCronquist || !this.plante.classificationCronquist.id) {
-                    this.classificationcronquists = res.body;
-                } else {
-                    this.classificationCronquistService.find(this.plante.classificationCronquist.id).subscribe(
-                        (subRes: HttpResponse<IClassificationCronquist>) => {
-                            this.classificationcronquists = [subRes.body].concat(res.body);
-                        },
-                        (subRes: HttpErrorResponse) => this.onError(subRes.message)
-                    );
-                }
+                this.classificationcronquists = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );

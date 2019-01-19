@@ -21,7 +21,7 @@ describe('Service Tests', () => {
             service = injector.get(PlanteService);
             httpMock = injector.get(HttpTestingController);
 
-            elemDefault = new Plante(0, 'AAAAAAA', 'AAAAAAA', 0, 0);
+            elemDefault = new Plante(0, 'AAAAAAA', 'AAAAAAA', 0, 0, 'AAAAAAA');
         });
 
         describe('Service methods', async () => {
@@ -58,7 +58,8 @@ describe('Service Tests', () => {
                         phMin: 'BBBBBB',
                         phMax: 'BBBBBB',
                         tempMin: 1,
-                        tempMax: 1
+                        tempMax: 1,
+                        commonName: 'BBBBBB'
                     },
                     elemDefault
                 );
@@ -78,7 +79,8 @@ describe('Service Tests', () => {
                         phMin: 'BBBBBB',
                         phMax: 'BBBBBB',
                         tempMin: 1,
-                        tempMax: 1
+                        tempMax: 1,
+                        commonName: 'BBBBBB'
                     },
                     elemDefault
                 );

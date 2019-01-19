@@ -1,6 +1,6 @@
-import { IClassificationCronquist } from 'app/shared/model/backend/classification-cronquist.model';
 import { IRecolte } from 'app/shared/model/backend/recolte.model';
 import { IFloraison } from 'app/shared/model/backend/floraison.model';
+import { IClassificationCronquist } from 'app/shared/model/backend/classification-cronquist.model';
 import { IStrate } from 'app/shared/model/backend/strate.model';
 import { IVitesseCroissance } from 'app/shared/model/backend/vitesse-croissance.model';
 import { IEnsoleillement } from 'app/shared/model/backend/ensoleillement.model';
@@ -15,9 +15,10 @@ export interface IPlante {
     phMax?: string;
     tempMin?: number;
     tempMax?: number;
-    classificationCronquist?: IClassificationCronquist;
+    commonName?: string;
     recoltes?: IRecolte[];
     floraisons?: IFloraison[];
+    classificationCronquist?: IClassificationCronquist;
     strate?: IStrate;
     vitesseCroissance?: IVitesseCroissance;
     ensoleillement?: IEnsoleillement;
@@ -34,9 +35,10 @@ export class Plante implements IPlante {
         public phMax?: string,
         public tempMin?: number,
         public tempMax?: number,
-        public classificationCronquist?: IClassificationCronquist,
+        public commonName?: string,
         public recoltes?: IRecolte[],
         public floraisons?: IFloraison[],
+        public classificationCronquist?: IClassificationCronquist,
         public strate?: IStrate,
         public vitesseCroissance?: IVitesseCroissance,
         public ensoleillement?: IEnsoleillement,

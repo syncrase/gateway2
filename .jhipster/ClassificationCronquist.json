@@ -29,7 +29,6 @@
         }
     ],
     "changelogDate": "20190115185532",
-    "javadoc": "@author Pierre TAQUET",
     "entityTableName": "classification_cronquist",
     "dto": "no",
     "pagination": "no",

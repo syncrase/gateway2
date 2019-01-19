@@ -19,6 +19,7 @@
             <th><span>Ph Max</span></th>
             <th><span>Temp Min</span></th>
             <th><span>Temp Max</span></th>
+            <th><span>Common Name</span></th>
             <th><span>Classification Cronquist</span></th>
             <th><span>Strate</span></th>
             <th><span>Vitesse Croissance</span></th>
@@ -37,6 +38,7 @@
                 <td>{{plante.phMax}}</td>
                 <td>{{plante.tempMin}}</td>
                 <td>{{plante.tempMax}}</td>
+                <td>{{plante.commonName}}</td>
                 <td>
                     <div *ngIf="plante.classificationCronquist">
                         <a [routerLink]="['../classification-cronquist', plante.classificationCronquist?.id, 'view' ]" >{{plante.classificationCronquist?.id}}</a>

@@ -8,7 +8,6 @@
     ],
     "relationships": [],
     "changelogDate": "20190115185538",
-    "javadoc": "Strate entity.\n@author Pierre TAQUET",
     "entityTableName": "strate",
     "dto": "no",
     "pagination": "no",
