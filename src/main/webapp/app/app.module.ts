@@ -22,6 +22,7 @@ import * as moment from 'moment';
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ErrorComponent } from './layouts';
 
 import { BlurbModule } from './blurb';
+import { Gateway2FeatureModule } from './features/features.module';
 
 @NgModule({
     imports: [
@@ -39,7 +40,8 @@ import { BlurbModule } from './blurb';
         Gateway2AccountModule,
         BlurbModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
-        Gateway2EntityModule
+        Gateway2EntityModule,
+        Gateway2FeatureModule
     ],
     declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, FooterComponent],
     providers: [
