@@ -42,9 +42,9 @@
                         [(ngModel)]="plante.tempMax" />
                 </div>
                 <div class="form-group">
-                    <label class="form-control-label" for="field_commonName">Common Name</label>
-                    <input type="text" class="form-control" name="commonName" id="field_commonName"
-                        [(ngModel)]="plante.commonName" />
+                    <label class="form-control-label" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                        [(ngModel)]="plante.description" />
                 </div>
 
                 <div class="form-group">
@@ -107,6 +107,12 @@
                     <select class="form-control" id="field_typeRacine" name="typeRacine" [(ngModel)]="plante.typeRacine" >
                         <option [ngValue]="null"></option>
                         <option [ngValue]="typeRacineOption.id === plante.typeRacine?.id ? plante.typeRacine : typeRacineOption" *ngFor="let typeRacineOption of typeracines; trackBy: trackTypeRacineById">{{typeRacineOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="field_plantCommonName">Plant Common Name</label>
+                    <select class="form-control" id="field_plantCommonName" multiple name="plantCommonName" [(ngModel)]="plante.plantCommonNames">
+                        <option [ngValue]="getSelected(plante.plantCommonNames, plantCommonNameOption)" *ngFor="let plantCommonNameOption of plantcommonnames; trackBy: trackPlantCommonNameById">{{plantCommonNameOption.id}}</option>
                     </select>
                 </div>
             </div>

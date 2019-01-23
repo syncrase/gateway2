@@ -22,6 +22,8 @@ import { ITypeFeuillage } from 'app/shared/model/backend/type-feuillage.model';
 import { TypeFeuillageService } from 'app/entities/backend/type-feuillage';
 import { ITypeRacine } from 'app/shared/model/backend/type-racine.model';
 import { TypeRacineService } from 'app/entities/backend/type-racine';
+import { IPlantCommonName } from 'app/shared/model/backend/plant-common-name.model';
+import { PlantCommonNameService } from 'app/entities/backend/plant-common-name';
 
 @Component({
     selector: 'jhi-plante-update',
@@ -47,6 +49,8 @@ export class PlanteUpdateComponent implements OnInit {
 
     typeracines: ITypeRacine[];
 
+    plantcommonnames: IPlantCommonName[];
+
     constructor(
         protected jhiAlertService: JhiAlertService,
         protected planteService: PlanteService,
@@ -58,6 +62,7 @@ export class PlanteUpdateComponent implements OnInit {
         protected typeTerreService: TypeTerreService,
         protected typeFeuillageService: TypeFeuillageService,
         protected typeRacineService: TypeRacineService,
+        protected plantCommonNameService: PlantCommonNameService,
         protected activatedRoute: ActivatedRoute
     ) {}
 
@@ -111,6 +116,12 @@ export class PlanteUpdateComponent implements OnInit {
         this.typeRacineService.query().subscribe(
             (res: HttpResponse<ITypeRacine[]>) => {
                 this.typeracines = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        this.plantCommonNameService.query().subscribe(
+            (res: HttpResponse<IPlantCommonName[]>) => {
+                this.plantcommonnames = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -176,5 +187,20 @@ export class PlanteUpdateComponent implements OnInit {
 
     trackTypeRacineById(index: number, item: ITypeRacine) {
         return item.id;
+    }
+
+    trackPlantCommonNameById(index: number, item: IPlantCommonName) {
+        return item.id;
+    }
+
+    getSelected(selectedVals: Array<any>, option: any) {
+        if (selectedVals) {
+            for (let i = 0; i < selectedVals.length; i++) {
+                if (option.id === selectedVals[i].id) {
+                    return selectedVals[i];
+                }
+            }
+        }
+        return option;
     }
 }

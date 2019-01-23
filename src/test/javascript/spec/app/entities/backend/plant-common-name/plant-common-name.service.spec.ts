@@ -4,24 +4,24 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { of } from 'rxjs';
 import { take, map } from 'rxjs/operators';
-import { PlanteService } from 'app/entities/backend/plante/plante.service';
-import { IPlante, Plante } from 'app/shared/model/backend/plante.model';
+import { PlantCommonNameService } from 'app/entities/backend/plant-common-name/plant-common-name.service';
+import { IPlantCommonName, PlantCommonName } from 'app/shared/model/backend/plant-common-name.model';
 
 describe('Service Tests', () => {
-    describe('Plante Service', () => {
+    describe('PlantCommonName Service', () => {
         let injector: TestBed;
-        let service: PlanteService;
+        let service: PlantCommonNameService;
         let httpMock: HttpTestingController;
-        let elemDefault: IPlante;
+        let elemDefault: IPlantCommonName;
         beforeEach(() => {
             TestBed.configureTestingModule({
                 imports: [HttpClientTestingModule]
             });
             injector = getTestBed();
-            service = injector.get(PlanteService);
+            service = injector.get(PlantCommonNameService);
             httpMock = injector.get(HttpTestingController);
 
-            elemDefault = new Plante(0, 'AAAAAAA', 'AAAAAAA', 0, 0, 'AAAAAAA');
+            elemDefault = new PlantCommonName(0, 'AAAAAAA');
         });
 
         describe('Service methods', async () => {
@@ -36,7 +36,7 @@ describe('Service Tests', () => {
                 req.flush(JSON.stringify(returnedFromService));
             });
 
-            it('should create a Plante', async () => {
+            it('should create a PlantCommonName', async () => {
                 const returnedFromService = Object.assign(
                     {
                         id: 0
@@ -45,21 +45,17 @@ describe('Service Tests', () => {
                 );
                 const expected = Object.assign({}, returnedFromService);
                 service
-                    .create(new Plante(null))
+                    .create(new PlantCommonName(null))
                     .pipe(take(1))
                     .subscribe(resp => expect(resp).toMatchObject({ body: expected }));
                 const req = httpMock.expectOne({ method: 'POST' });
                 req.flush(JSON.stringify(returnedFromService));
             });
 
-            it('should update a Plante', async () => {
+            it('should update a PlantCommonName', async () => {
                 const returnedFromService = Object.assign(
                     {
-                        phMin: 'BBBBBB',
-                        phMax: 'BBBBBB',
-                        tempMin: 1,
-                        tempMax: 1,
-                        description: 'BBBBBB'
+                        commonName: 'BBBBBB'
                     },
                     elemDefault
                 );
@@ -73,14 +69,10 @@ describe('Service Tests', () => {
                 req.flush(JSON.stringify(returnedFromService));
             });
 
-            it('should return a list of Plante', async () => {
+            it('should return a list of PlantCommonName', async () => {
                 const returnedFromService = Object.assign(
                     {
-                        phMin: 'BBBBBB',
-                        phMax: 'BBBBBB',
-                        tempMin: 1,
-                        tempMax: 1,
-                        description: 'BBBBBB'
+                        commonName: 'BBBBBB'
                     },
                     elemDefault
                 );
@@ -97,7 +89,7 @@ describe('Service Tests', () => {
                 httpMock.verify();
             });
 
-            it('should delete a Plante', async () => {
+            it('should delete a PlantCommonName', async () => {
                 const rxPromise = service.delete(123).subscribe(resp => expect(resp.ok));
 
                 const req = httpMock.expectOne({ method: 'DELETE' });

@@ -21,9 +21,9 @@
                 <dd>
                     <span>{{plante.tempMax}}</span>
                 </dd>
-                <dt><span>Common Name</span></dt>
+                <dt><span>Description</span></dt>
                 <dd>
-                    <span>{{plante.commonName}}</span>
+                    <span>{{plante.description}}</span>
                 </dd>
                 <dt><span>Classification Cronquist</span></dt>
                 <dd>
@@ -72,6 +72,12 @@
                     <div *ngIf="plante.typeRacine">
                         <a [routerLink]="['/type-racine', plante.typeRacine?.id, 'view']">{{plante.typeRacine?.id}}</a>
                     </div>
+                </dd>
+                <dt><span>Plant Common Name</span></dt>
+                <dd>
+                    <span *ngFor="let plantCommonName of plante.plantCommonNames; let last = last">
+                        <a [routerLink]="['/plant-common-name', plantCommonName?.id, 'view' ]">{{plantCommonName.id}}</a>{{last ? '' : ', '}}
+                    </span>
                 </dd>
             </dl>
 

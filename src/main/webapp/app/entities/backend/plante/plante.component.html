@@ -19,7 +19,7 @@
             <th><span>Ph Max</span></th>
             <th><span>Temp Min</span></th>
             <th><span>Temp Max</span></th>
-            <th><span>Common Name</span></th>
+            <th><span>Description</span></th>
             <th><span>Classification Cronquist</span></th>
             <th><span>Strate</span></th>
             <th><span>Vitesse Croissance</span></th>
@@ -28,6 +28,7 @@
             <th><span>Type Terre</span></th>
             <th><span>Type Feuillage</span></th>
             <th><span>Type Racine</span></th>
+            <th><span>Plant Common Name</span></th>
             <th></th>
             </tr>
             </thead>
@@ -38,7 +39,7 @@
                 <td>{{plante.phMax}}</td>
                 <td>{{plante.tempMin}}</td>
                 <td>{{plante.tempMax}}</td>
-                <td>{{plante.commonName}}</td>
+                <td>{{plante.description}}</td>
                 <td>
                     <div *ngIf="plante.classificationCronquist">
                         <a [routerLink]="['../classification-cronquist', plante.classificationCronquist?.id, 'view' ]" >{{plante.classificationCronquist?.id}}</a>
@@ -78,6 +79,11 @@
                     <div *ngIf="plante.typeRacine">
                         <a [routerLink]="['../type-racine', plante.typeRacine?.id, 'view' ]" >{{plante.typeRacine?.id}}</a>
                     </div>
+                </td>
+                <td>
+                    <span *ngFor="let plantCommonName of plante.plantCommonNames; let last = last">
+                            <a class="form-control-static" [routerLink]="['../plant-common-name', plantCommonName?.id, 'view' ]">{{plantCommonName.id}}</a>{{last ? '' : ', '}}
+                        </span>
                 </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">

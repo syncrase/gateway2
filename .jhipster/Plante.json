@@ -26,7 +26,7 @@
             "fieldType": "Integer"
         },
         {
-            "fieldName": "commonName",
+            "fieldName": "description",
             "fieldType": "String"
         }
     ],
@@ -91,6 +91,14 @@
             "relationshipName": "typeRacine",
             "otherEntityName": "typeRacine",
             "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "plante",
+            "relationshipName": "plantCommonName",
+            "otherEntityName": "plantCommonName",
+            "otherEntityField": "id",
+            "ownerSide": true
         }
     ],
     "changelogDate": "20190115185528",
@@ -99,7 +107,7 @@
     "dto": "no",
     "pagination": "no",
     "service": "serviceImpl",
-    "jpaMetamodelFiltering": false,
+    "jpaMetamodelFiltering": true,
     "fluentMethods": true,
     "clientRootFolder": "",
     "applications": "*",

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
 
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption } from 'app/shared';
@@ -41,8 +40,9 @@ export class PlanteService {
         if (!term.trim()) {
             return of([]);
         }
+        // http://localhost:8080/backend/api/plantes/?commonName=ail
         return this.http
-            .get<Plante[]>(`${this.resourceUrl}/?name=${term}`)
+            .get<IPlante[]>(`${this.resourceUrl}/?name=${term}`)
             .pipe
             // tap(_ => this.log(`found heroes matching "${term}"`)),
             // catchError(this.handleError<Hero[]>('searchHeroes', []))

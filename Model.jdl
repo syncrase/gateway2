@@ -44,7 +44,13 @@ entity Plante {
 	phMax String pattern(/^\d{0,1}(,\d){0,1}$/)
 	tempMin Integer
 	tempMax Integer
+	description String
+}
+entity PlantCommonName {
 	commonName String
+}
+relationship ManyToMany {
+	Plante to PlantCommonName
 }
 entity Recolte {
 }
@@ -146,6 +152,7 @@ entity TypeRacine {
 
 // Set service options to all except few
 service all with serviceImpl
+filter *
 // Set an angular suffix
 //angularSuffix * with mySuffix
 microservice * with backend

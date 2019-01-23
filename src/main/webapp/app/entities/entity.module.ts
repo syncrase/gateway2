@@ -20,6 +20,7 @@ import { Gateway2TypeRacineModule as BackendTypeRacineModule } from './backend/t
 import { Gateway2ReferenceModule as BackendReferenceModule } from './backend/reference/reference.module';
 import { Gateway2LivreModule as BackendLivreModule } from './backend/livre/livre.module';
 import { Gateway2PageWebModule as BackendPageWebModule } from './backend/page-web/page-web.module';
+import { Gateway2PlantCommonNameModule as BackendPlantCommonNameModule } from './backend/plant-common-name/plant-common-name.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
@@ -45,6 +46,7 @@ import { Gateway2PageWebModule as BackendPageWebModule } from './backend/page-we
         BackendReferenceModule,
         BackendLivreModule,
         BackendPageWebModule,
+        BackendPlantCommonNameModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],

@@ -41,7 +41,7 @@ export class ReferenceUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ reference }) => {
             this.reference = reference;
         });
-        this.livreService.query({ filter: 'reference-is-null' }).subscribe(
+        this.livreService.query({ 'referenceId.specified': 'false' }).subscribe(
             (res: HttpResponse<ILivre[]>) => {
                 if (!this.reference.livre || !this.reference.livre.id) {
                     this.livres = res.body;
@@ -56,7 +56,7 @@ export class ReferenceUpdateComponent implements OnInit {
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
-        this.pageWebService.query({ filter: 'reference-is-null' }).subscribe(
+        this.pageWebService.query({ 'referenceId.specified': 'false' }).subscribe(
             (res: HttpResponse<IPageWeb[]>) => {
                 if (!this.reference.pageWeb || !this.reference.pageWeb.id) {
                     this.pagewebs = res.body;

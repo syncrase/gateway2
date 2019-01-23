@@ -8,6 +8,7 @@ import { IRichesseSol } from 'app/shared/model/backend/richesse-sol.model';
 import { ITypeTerre } from 'app/shared/model/backend/type-terre.model';
 import { ITypeFeuillage } from 'app/shared/model/backend/type-feuillage.model';
 import { ITypeRacine } from 'app/shared/model/backend/type-racine.model';
+import { IPlantCommonName } from 'app/shared/model/backend/plant-common-name.model';
 
 export interface IPlante {
     id?: number;
@@ -15,7 +16,7 @@ export interface IPlante {
     phMax?: string;
     tempMin?: number;
     tempMax?: number;
-    commonName?: string;
+    description?: string;
     recoltes?: IRecolte[];
     floraisons?: IFloraison[];
     classificationCronquist?: IClassificationCronquist;
@@ -26,6 +27,7 @@ export interface IPlante {
     typeTerre?: ITypeTerre;
     typeFeuillage?: ITypeFeuillage;
     typeRacine?: ITypeRacine;
+    plantCommonNames?: IPlantCommonName[];
 }
 
 export class Plante implements IPlante {
@@ -35,7 +37,7 @@ export class Plante implements IPlante {
         public phMax?: string,
         public tempMin?: number,
         public tempMax?: number,
-        public commonName?: string,
+        public description?: string,
         public recoltes?: IRecolte[],
         public floraisons?: IFloraison[],
         public classificationCronquist?: IClassificationCronquist,
@@ -45,6 +47,7 @@ export class Plante implements IPlante {
         public richesseSol?: IRichesseSol,
         public typeTerre?: ITypeTerre,
         public typeFeuillage?: ITypeFeuillage,
-        public typeRacine?: ITypeRacine
+        public typeRacine?: ITypeRacine,
+        public plantCommonNames?: IPlantCommonName[]
     ) {}
 }
