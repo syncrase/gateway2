@@ -8,7 +8,7 @@ export const plantsCheckerRoutes: Routes = [
         component: PlantsCheckerComponent,
         data: {
             authorities: ['ROLE_USER'],
-            pageTitle: 'ClassificationCronquists'
+            pageTitle: 'Plante checker'
         },
         canActivate: [UserRouteAccessService]
     }

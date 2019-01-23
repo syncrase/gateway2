@@ -1,3 +1,28 @@
-<p>
+<!-- <p>
   plants-checker works!
-</p>
+</p> -->
+<div class="container">
+
+    <div class="row">
+        Ici, faites le choix de vos plantes
+        <input #searchBox id="search-box" class="form-control form-control-lg form-control-borderless" (input)="search(searchBox.value)">
+        <ul class="search-result">
+            search results:
+            <li *ngFor="let plante of plantes$ | async">
+                <!-- <a routerLink="/detail/{{hero.id}}"> -->
+                    {{plante.name}}
+                <!-- </a> -->
+            </li>
+        </ul>
+
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            Ici les interactions qui vont bien
+            <!-- <jhi-plante></jhi-plante> -->
+        </div>
+        <div class="col-md-6">
+            Ici les interactions qui vont pas
+        </div>
+    </div>
+</div>
