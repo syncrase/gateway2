@@ -42,7 +42,7 @@
                 <td>{{plante.description}}</td>
                 <td>
                     <div *ngIf="plante.classificationCronquist">
-                        <a [routerLink]="['../classification-cronquist', plante.classificationCronquist?.id, 'view' ]" >{{plante.classificationCronquist?.id}}</a>
+                        <a [routerLink]="['../classification-cronquist', plante.classificationCronquist?.id, 'view' ]" >{{plante.classificationCronquist?.espece?.name}}</a>
                     </div>
                 </td>
                 <td>
@@ -81,8 +81,15 @@
                     </div>
                 </td>
                 <td>
+                        <div *ngIf="plante">
+                                plante
+                        </div>
+                        <div *ngIf="plante.plantCommonNames">
+                                plantCommonNames
+                        </div>
                     <span *ngFor="let plantCommonName of plante.plantCommonNames; let last = last">
-                            <a class="form-control-static" [routerLink]="['../plant-common-name', plantCommonName?.id, 'view' ]">{{plantCommonName.id}}</a>{{last ? '' : ', '}}
+                        un nom
+                            <a class="form-control-static" [routerLink]="['../plant-common-name', plantCommonName?.id, 'view' ]">{{plantCommonName.commonName}}</a>{{last ? '' : ', '}}
                         </span>
                 </td>
                 <td class="text-right">

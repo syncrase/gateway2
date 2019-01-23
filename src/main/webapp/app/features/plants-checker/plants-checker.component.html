@@ -7,11 +7,12 @@
         Ici, faites le choix de vos plantes
         <input #searchBox id="search-box" class="form-control form-control-lg form-control-borderless" (input)="search(searchBox.value)">
         <ul class="search-result">
-            search results:
-            <li *ngFor="let plante of plantes$ | async">
-                <!-- <a routerLink="/detail/{{hero.id}}"> -->
-                    {{plante.name}}
-                <!-- </a> -->
+            <!--  $ | async -->
+            <li *ngFor="let plante of plantes">
+                <!-- Perhaps need an absolute path ../../entities/backend -->
+                <a [routerLink]="['/plante', plante.id, 'view' ]">
+                    {{plante.classificationCronquist?.espece?.name}}
+                </a>
             </li>
         </ul>
 

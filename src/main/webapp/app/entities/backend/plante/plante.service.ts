@@ -36,16 +36,15 @@ export class PlanteService {
         return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
     }
 
-    searchPlantes(term: string): Observable<Plante[]> {
-        if (!term.trim()) {
-            return of([]);
-        }
+    searchPlantes(term: string): Observable<EntityArrayResponseType> {
+        // if (!term.trim()) {
+        //     return of([]);
+        // }
         // http://localhost:8080/backend/api/plantes/?commonName=ail
-        return this.http
-            .get<IPlante[]>(`${this.resourceUrl}/?name=${term}`)
-            .pipe
-            // tap(_ => this.log(`found heroes matching "${term}"`)),
-            // catchError(this.handleError<Hero[]>('searchHeroes', []))
-            ();
+        return this.http.get<IPlante[]>(`${this.resourceUrl}?id.equals=${term}`, { observe: 'response' });
+        // .pipe
+        // tap(_ => this.log(`found heroes matching "${term}"`)),
+        // catchError(this.handleError<Hero[]>('searchHeroes', []))
+        // ();
     }
 }
