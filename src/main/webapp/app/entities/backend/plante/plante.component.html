@@ -81,16 +81,9 @@
                     </div>
                 </td>
                 <td>
-                        <div *ngIf="plante">
-                                plante
-                        </div>
-                        <div *ngIf="plante.plantCommonNames">
-                                plantCommonNames
-                        </div>
                     <span *ngFor="let plantCommonName of plante.plantCommonNames; let last = last">
-                        un nom
-                            <a class="form-control-static" [routerLink]="['../plant-common-name', plantCommonName?.id, 'view' ]">{{plantCommonName.commonName}}</a>{{last ? '' : ', '}}
-                        </span>
+                        <a class="form-control-static" [routerLink]="['../plant-common-name', plantCommonName?.id, 'view' ]">{{plantCommonName.commonName}}</a>{{last ? '' : ', '}}
+                    </span>
                 </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">

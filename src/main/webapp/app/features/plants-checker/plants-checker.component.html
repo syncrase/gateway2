@@ -3,27 +3,51 @@
 </p> -->
 <div class="container">
 
-    <div class="row">
-        Ici, faites le choix de vos plantes
-        <input #searchBox id="search-box" class="form-control form-control-lg form-control-borderless" (input)="search(searchBox.value)">
+    <!-- <div class="row">
+        Choix des plantes par id :
+        <input #searchBox id="search-box" class="form-control form-control-lg form-control-borderless" (input)="searchByPlantId(searchBox.value)">
         <ul class="search-result">
-            <!--  $ | async -->
             <li *ngFor="let plante of plantes">
-                <!-- Perhaps need an absolute path ../../entities/backend -->
                 <a [routerLink]="['/plante', plante.id, 'view' ]">
                     {{plante.classificationCronquist?.espece?.name}}
                 </a>
             </li>
         </ul>
+    </div> -->
+    <!-- <div class="row">
+        Choix des noms commun par pattern :
+        <input #searchBox id="search-box" class="form-control form-control-lg form-control-borderless" (input)="searchByPlantCommonName(searchBox.value)">
+        <ul class="search-result">
+            <li *ngFor="let commonName of plantCommonNames">
+                <a [routerLink]="['/plant-common-name', commonName.id, 'view' ]">
+                    {{commonName.commonName}}
+                </a>
+            </li>
+        </ul> -->
+</div>
+<div class="row">
+    Choix des plantes par pattern de nom commun :
+    <input #searchBox id="search-box" class="form-control form-control-lg form-control-borderless" (input)="searchPlantByPlantCommonName(searchBox.value)">
+    <ul class="search-result">
+        <li *ngFor="let plante of plantes">
+            <a [routerLink]="['/plante', plante.id, 'view' ]">
+                <span *ngFor="let commonName of plante.plantCommonNames">
+                    {{commonName.commonName}}
+                </span>
+                ({{plante.classificationCronquist?.espece?.name}})
+            </a>
+        </li>
+    </ul>
+</div>
 
+<!--  -->
+<div class="row">
+    <div class="col-md-6">
+        Ici les interactions qui vont bien
+        <!-- <jhi-plante></jhi-plante> -->
     </div>
-    <div class="row">
-        <div class="col-md-6">
-            Ici les interactions qui vont bien
-            <!-- <jhi-plante></jhi-plante> -->
-        </div>
-        <div class="col-md-6">
-            Ici les interactions qui vont pas
-        </div>
+    <div class="col-md-6">
+        Ici les interactions qui vont pas
     </div>
+</div>
 </div>

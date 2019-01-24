@@ -35,4 +35,16 @@ export class PlantCommonNameService {
     delete(id: number): Observable<HttpResponse<any>> {
         return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
     }
+
+    searchByPlantCommonName(term: string): Observable<EntityArrayResponseType> {
+        // if (!term.trim()) {
+        //     return of([]);
+        // }
+        // http://localhost:8080/backend/api/plantes/?commonName=ail
+        return this.http.get<IPlantCommonName[]>(`${this.resourceUrl}?commonName.contains=${term}`, { observe: 'response' });
+        // .pipe
+        // tap(_ => this.log(`found heroes matching "${term}"`)),
+        // catchError(this.handleError<Hero[]>('searchHeroes', []))
+        // ();
+    }
 }
