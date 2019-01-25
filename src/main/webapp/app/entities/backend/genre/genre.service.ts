@@ -11,7 +11,7 @@ type EntityArrayResponseType = HttpResponse<IGenre[]>;
 
 @Injectable({ providedIn: 'root' })
 export class GenreService {
-    public resourceUrl = SERVER_API_URL + 'backend/api/genres';
+    public resourceUrl = SERVER_API_URL + 'backend2/api/genres';
 
     constructor(protected http: HttpClient) {}
 

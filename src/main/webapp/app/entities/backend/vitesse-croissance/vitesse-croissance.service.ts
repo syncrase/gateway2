@@ -11,7 +11,7 @@ type EntityArrayResponseType = HttpResponse<IVitesseCroissance[]>;
 
 @Injectable({ providedIn: 'root' })
 export class VitesseCroissanceService {
-    public resourceUrl = SERVER_API_URL + 'backend/api/vitesse-croissances';
+    public resourceUrl = SERVER_API_URL + 'backend2/api/vitesse-croissances';
 
     constructor(protected http: HttpClient) {}
 

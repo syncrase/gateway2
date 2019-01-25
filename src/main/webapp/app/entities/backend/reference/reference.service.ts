@@ -11,7 +11,7 @@ type EntityArrayResponseType = HttpResponse<IReference[]>;
 
 @Injectable({ providedIn: 'root' })
 export class ReferenceService {
-    public resourceUrl = SERVER_API_URL + 'backend/api/references';
+    public resourceUrl = SERVER_API_URL + 'backend2/api/references';
 
     constructor(protected http: HttpClient) {}
 

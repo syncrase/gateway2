@@ -11,7 +11,7 @@ type EntityArrayResponseType = HttpResponse<IStrate[]>;
 
 @Injectable({ providedIn: 'root' })
 export class StrateService {
-    public resourceUrl = SERVER_API_URL + 'backend/api/strates';
+    public resourceUrl = SERVER_API_URL + 'backend2/api/strates';
 
     constructor(protected http: HttpClient) {}
 

@@ -11,7 +11,7 @@ type EntityArrayResponseType = HttpResponse<IEnsoleillement[]>;
 
 @Injectable({ providedIn: 'root' })
 export class EnsoleillementService {
-    public resourceUrl = SERVER_API_URL + 'backend/api/ensoleillements';
+    public resourceUrl = SERVER_API_URL + 'backend2/api/ensoleillements';
 
     constructor(protected http: HttpClient) {}
 

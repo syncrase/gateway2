@@ -11,7 +11,7 @@ type EntityArrayResponseType = HttpResponse<IFloraison[]>;
 
 @Injectable({ providedIn: 'root' })
 export class FloraisonService {
-    public resourceUrl = SERVER_API_URL + 'backend/api/floraisons';
+    public resourceUrl = SERVER_API_URL + 'backend2/api/floraisons';
 
     constructor(protected http: HttpClient) {}
 

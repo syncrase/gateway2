@@ -1,6 +1,6 @@
 
 /**
- * 
+ *
  * @author Pierre TAQUET
  */
 //application {
@@ -33,7 +33,7 @@
 //     //  	skipServer false
 //     //  	skipUserManagement true
 //     //  	clientFramework angularX
-//  	     // Perhaps later 
+//  	     // Perhaps later
 //  	     // applicationType microservice
 //  	     // serverPort 8082
 //  }
@@ -117,14 +117,14 @@ relationship ManyToOne {
 	Plante{typeTerre} to TypeTerre
 	Plante{typeFeuillage} to TypeFeuillage
 	Plante{typeRacine} to TypeRacine
-	// Récolte et flo
+	// Rï¿½colte et flo
 	Recolte{plante} to Plante
 	Recolte{mois} to Mois
 	Floraison{plante} to Plante
 	Floraison{mois} to Mois
 }
 //relationship OneToMany {
-	// Récolte et flo
+	// Rï¿½colte et flo
 	// Plante to Recolte{plante}
 	// Mois to Recolte{mois}
 	// Plante to Floraison{plante}
@@ -163,4 +163,4 @@ filter *
 dto * with mapstruct
 
 //angularSuffix * with mySuffix
-microservice * with backend
+microservice * with backend2

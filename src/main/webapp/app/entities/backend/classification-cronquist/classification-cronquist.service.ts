@@ -11,7 +11,7 @@ type EntityArrayResponseType = HttpResponse<IClassificationCronquist[]>;
 
 @Injectable({ providedIn: 'root' })
 export class ClassificationCronquistService {
-    public resourceUrl = SERVER_API_URL + 'backend/api/classification-cronquists';
+    public resourceUrl = SERVER_API_URL + 'backend2/api/classification-cronquists';
 
     constructor(protected http: HttpClient) {}
 

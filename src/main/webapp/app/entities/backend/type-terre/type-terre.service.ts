@@ -11,7 +11,7 @@ type EntityArrayResponseType = HttpResponse<ITypeTerre[]>;
 
 @Injectable({ providedIn: 'root' })
 export class TypeTerreService {
-    public resourceUrl = SERVER_API_URL + 'backend/api/type-terres';
+    public resourceUrl = SERVER_API_URL + 'backend2/api/type-terres';
 
     constructor(protected http: HttpClient) {}
 

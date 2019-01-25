@@ -11,7 +11,7 @@ type EntityArrayResponseType = HttpResponse<IPageWeb[]>;
 
 @Injectable({ providedIn: 'root' })
 export class PageWebService {
-    public resourceUrl = SERVER_API_URL + 'backend/api/page-webs';
+    public resourceUrl = SERVER_API_URL + 'backend2/api/page-webs';
 
     constructor(protected http: HttpClient) {}
 

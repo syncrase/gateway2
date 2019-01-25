@@ -11,7 +11,7 @@ type EntityArrayResponseType = HttpResponse<IPlantCommonName[]>;
 
 @Injectable({ providedIn: 'root' })
 export class PlantCommonNameService {
-    public resourceUrl = SERVER_API_URL + 'backend/api/plant-common-names';
+    public resourceUrl = SERVER_API_URL + 'backend2/api/plant-common-names';
 
     constructor(protected http: HttpClient) {}
 

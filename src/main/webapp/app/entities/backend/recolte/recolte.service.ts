@@ -11,7 +11,7 @@ type EntityArrayResponseType = HttpResponse<IRecolte[]>;
 
 @Injectable({ providedIn: 'root' })
 export class RecolteService {
-    public resourceUrl = SERVER_API_URL + 'backend/api/recoltes';
+    public resourceUrl = SERVER_API_URL + 'backend2/api/recoltes';
 
     constructor(protected http: HttpClient) {}
 

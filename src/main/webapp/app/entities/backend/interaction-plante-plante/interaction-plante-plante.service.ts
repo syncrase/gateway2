@@ -11,7 +11,7 @@ type EntityArrayResponseType = HttpResponse<IInteractionPlantePlante[]>;
 
 @Injectable({ providedIn: 'root' })
 export class InteractionPlantePlanteService {
-    public resourceUrl = SERVER_API_URL + 'backend/api/interaction-plante-plantes';
+    public resourceUrl = SERVER_API_URL + 'backend2/api/interaction-plante-plantes';
 
     constructor(protected http: HttpClient) {}
 

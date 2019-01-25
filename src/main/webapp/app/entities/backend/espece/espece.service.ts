@@ -11,7 +11,7 @@ type EntityArrayResponseType = HttpResponse<IEspece[]>;
 
 @Injectable({ providedIn: 'root' })
 export class EspeceService {
-    public resourceUrl = SERVER_API_URL + 'backend/api/especes';
+    public resourceUrl = SERVER_API_URL + 'backend2/api/especes';
 
     constructor(protected http: HttpClient) {}
 

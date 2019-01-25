@@ -36,5 +36,5 @@
     "fluentMethods": true,
     "clientRootFolder": "",
     "applications": "*",
-    "microserviceName": "backend"
+    "microserviceName": "backend2"
 }

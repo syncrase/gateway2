@@ -11,7 +11,7 @@ type EntityArrayResponseType = HttpResponse<IMois[]>;
 
 @Injectable({ providedIn: 'root' })
 export class MoisService {
-    public resourceUrl = SERVER_API_URL + 'backend/api/mois';
+    public resourceUrl = SERVER_API_URL + 'backend2/api/mois';
 
     constructor(protected http: HttpClient) {}
 

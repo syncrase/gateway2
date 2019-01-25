@@ -11,7 +11,7 @@ type EntityArrayResponseType = HttpResponse<ITypeFeuillage[]>;
 
 @Injectable({ providedIn: 'root' })
 export class TypeFeuillageService {
-    public resourceUrl = SERVER_API_URL + 'backend/api/type-feuillages';
+    public resourceUrl = SERVER_API_URL + 'backend2/api/type-feuillages';
 
     constructor(protected http: HttpClient) {}
 

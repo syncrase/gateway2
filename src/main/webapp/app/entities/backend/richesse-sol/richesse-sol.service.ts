@@ -11,7 +11,7 @@ type EntityArrayResponseType = HttpResponse<IRichesseSol[]>;
 
 @Injectable({ providedIn: 'root' })
 export class RichesseSolService {
-    public resourceUrl = SERVER_API_URL + 'backend/api/richesse-sols';
+    public resourceUrl = SERVER_API_URL + 'backend2/api/richesse-sols';
 
     constructor(protected http: HttpClient) {}
 

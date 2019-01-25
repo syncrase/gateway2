@@ -11,7 +11,7 @@ type EntityArrayResponseType = HttpResponse<IPlante[]>;
 
 @Injectable({ providedIn: 'root' })
 export class PlanteService {
-    public resourceUrl = SERVER_API_URL + 'backend/api/plantes';
+    public resourceUrl = SERVER_API_URL + 'backend2/api/plantes';
 
     constructor(protected http: HttpClient) {}
 
@@ -34,5 +34,15 @@ export class PlanteService {
 
     delete(id: number): Observable<HttpResponse<any>> {
         return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
+    }
+
+    searchByPlantId(term: string): Observable<EntityArrayResponseType> {
+        // http://localhost:8080/backend2/api/plantes/?id=1
+        return this.http.get<IPlante[]>(`${this.resourceUrl}?id.equals=${term}`, { observe: 'response' });
+    }
+
+    searchPlantByPlantCommonNameIds(ids: string): Observable<EntityArrayResponseType> {
+        // ids = '1,2,3';
+        return this.http.get<IPlante[]>(`${this.resourceUrl}?plantCommonNameId.in=${ids}`, { observe: 'response' });
     }
 }

@@ -11,7 +11,7 @@ type EntityArrayResponseType = HttpResponse<ILivre[]>;
 
 @Injectable({ providedIn: 'root' })
 export class LivreService {
-    public resourceUrl = SERVER_API_URL + 'backend/api/livres';
+    public resourceUrl = SERVER_API_URL + 'backend2/api/livres';
 
     constructor(protected http: HttpClient) {}
 
