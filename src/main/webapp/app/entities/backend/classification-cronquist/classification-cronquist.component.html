@@ -13,12 +13,12 @@
     <div class="table-responsive" *ngIf="classificationCronquists">
         <table class="table table-striped">
             <thead>
-            <tr>
-            <th><span>ID</span></th>
-            <th><span>Ordre</span></th>
-            <th><span>Famille</span></th>
-            <th><span>Genre</span></th>
-            <th><span>Espece</span></th>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ordreName"><span>Ordre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="familleName"><span>Famille</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="genreName"><span>Genre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="especeName"><span>Espece</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
@@ -26,23 +26,23 @@
             <tr *ngFor="let classificationCronquist of classificationCronquists ;trackBy: trackId">
                 <td><a [routerLink]="['/classification-cronquist', classificationCronquist.id, 'view' ]">{{classificationCronquist.id}}</a></td>
                 <td>
-                    <div *ngIf="classificationCronquist.ordre">
-                        <a [routerLink]="['../ordre', classificationCronquist.ordre?.id, 'view' ]" >{{classificationCronquist.ordre?.name}}</a>
+                    <div *ngIf="classificationCronquist.ordreId">
+                        <a [routerLink]="['../ordre', classificationCronquist.ordreId , 'view' ]" >{{classificationCronquist.ordreName}}</a>
                     </div>
                 </td>
                 <td>
-                    <div *ngIf="classificationCronquist.famille">
-                        <a [routerLink]="['../famille', classificationCronquist.famille?.id, 'view' ]" >{{classificationCronquist.famille?.name}}</a>
+                    <div *ngIf="classificationCronquist.familleId">
+                        <a [routerLink]="['../famille', classificationCronquist.familleId , 'view' ]" >{{classificationCronquist.familleName}}</a>
                     </div>
                 </td>
                 <td>
-                    <div *ngIf="classificationCronquist.genre">
-                        <a [routerLink]="['../genre', classificationCronquist.genre?.id, 'view' ]" >{{classificationCronquist.genre?.name}}</a>
+                    <div *ngIf="classificationCronquist.genreId">
+                        <a [routerLink]="['../genre', classificationCronquist.genreId , 'view' ]" >{{classificationCronquist.genreName}}</a>
                     </div>
                 </td>
                 <td>
-                    <div *ngIf="classificationCronquist.espece">
-                        <a [routerLink]="['../espece', classificationCronquist.espece?.id, 'view' ]" >{{classificationCronquist.espece?.name}}</a>
+                    <div *ngIf="classificationCronquist.especeId">
+                        <a [routerLink]="['../espece', classificationCronquist.especeId , 'view' ]" >{{classificationCronquist.especeName}}</a>
                     </div>
                 </td>
                 <td class="text-right">
@@ -72,5 +72,13 @@
             </tr>
             </tbody>
         </table>
+    </div>
+    <div *ngIf="classificationCronquists && classificationCronquists.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
     </div>
 </div>

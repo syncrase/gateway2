@@ -11,20 +11,20 @@
                 </dd>
                 <dt><span>Livre</span></dt>
                 <dd>
-                    <div *ngIf="reference.livre">
-                        <a [routerLink]="['/livre', reference.livre?.id, 'view']">{{reference.livre?.id}}</a>
+                    <div *ngIf="reference.livreId">
+                        <a [routerLink]="['/livre', reference.livreId, 'view']">{{reference.livreId}}</a>
                     </div>
                 </dd>
                 <dt><span>Page Web</span></dt>
                 <dd>
-                    <div *ngIf="reference.pageWeb">
-                        <a [routerLink]="['/page-web', reference.pageWeb?.id, 'view']">{{reference.pageWeb?.id}}</a>
+                    <div *ngIf="reference.pageWebId">
+                        <a [routerLink]="['/page-web', reference.pageWebId, 'view']">{{reference.pageWebId}}</a>
                     </div>
                 </dd>
                 <dt><span>Interaction Plante Plante</span></dt>
                 <dd>
-                    <div *ngIf="reference.interactionPlantePlante">
-                        <a [routerLink]="['/interaction-plante-plante', reference.interactionPlantePlante?.id, 'view']">{{reference.interactionPlantePlante?.id}}</a>
+                    <div *ngIf="reference.interactionPlantePlanteId">
+                        <a [routerLink]="['/interaction-plante-plante', reference.interactionPlantePlanteId, 'view']">{{reference.interactionPlantePlanteId}}</a>
                     </div>
                 </dd>
             </dl>

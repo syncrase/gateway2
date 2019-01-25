@@ -12,16 +12,16 @@
 
                 <div class="form-group">
                     <label class="form-control-label" for="field_plante">Plante</label>
-                    <select class="form-control" id="field_plante" name="plante" [(ngModel)]="floraison.plante" >
+                    <select class="form-control" id="field_plante" name="plante" [(ngModel)]="floraison.planteId" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="planteOption.id === floraison.plante?.id ? floraison.plante : planteOption" *ngFor="let planteOption of plantes; trackBy: trackPlanteById">{{planteOption.id}}</option>
+                        <option [ngValue]="planteOption.id" *ngFor="let planteOption of plantes; trackBy: trackPlanteById">{{planteOption.id}}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_mois">Mois</label>
-                    <select class="form-control" id="field_mois" name="mois" [(ngModel)]="floraison.mois" >
+                    <select class="form-control" id="field_mois" name="mois" [(ngModel)]="floraison.moisId" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="moisOption.id === floraison.mois?.id ? floraison.mois : moisOption" *ngFor="let moisOption of mois; trackBy: trackMoisById">{{moisOption.id}}</option>
+                        <option [ngValue]="moisOption.id" *ngFor="let moisOption of mois; trackBy: trackMoisById">{{moisOption.id}}</option>
                     </select>
                 </div>
             </div>

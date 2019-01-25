@@ -12,30 +12,30 @@
 
                 <div class="form-group">
                     <label class="form-control-label" for="field_ordre">Ordre</label>
-                    <select class="form-control" id="field_ordre" name="ordre" [(ngModel)]="classificationCronquist.ordre" >
+                    <select class="form-control" id="field_ordre" name="ordre" [(ngModel)]="classificationCronquist.ordreId" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="ordreOption.id === classificationCronquist.ordre?.id ? classificationCronquist.ordre : ordreOption" *ngFor="let ordreOption of ordres; trackBy: trackOrdreById">{{ordreOption.name}}</option>
+                        <option [ngValue]="ordreOption.id" *ngFor="let ordreOption of ordres; trackBy: trackOrdreById">{{ordreOption.name}}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_famille">Famille</label>
-                    <select class="form-control" id="field_famille" name="famille" [(ngModel)]="classificationCronquist.famille" >
+                    <select class="form-control" id="field_famille" name="famille" [(ngModel)]="classificationCronquist.familleId" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="familleOption.id === classificationCronquist.famille?.id ? classificationCronquist.famille : familleOption" *ngFor="let familleOption of familles; trackBy: trackFamilleById">{{familleOption.name}}</option>
+                        <option [ngValue]="familleOption.id" *ngFor="let familleOption of familles; trackBy: trackFamilleById">{{familleOption.name}}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_genre">Genre</label>
-                    <select class="form-control" id="field_genre" name="genre" [(ngModel)]="classificationCronquist.genre" >
+                    <select class="form-control" id="field_genre" name="genre" [(ngModel)]="classificationCronquist.genreId" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="genreOption.id === classificationCronquist.genre?.id ? classificationCronquist.genre : genreOption" *ngFor="let genreOption of genres; trackBy: trackGenreById">{{genreOption.name}}</option>
+                        <option [ngValue]="genreOption.id" *ngFor="let genreOption of genres; trackBy: trackGenreById">{{genreOption.name}}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_espece">Espece</label>
-                    <select class="form-control" id="field_espece" name="espece" [(ngModel)]="classificationCronquist.espece"  required>
+                    <select class="form-control" id="field_espece" name="espece" [(ngModel)]="classificationCronquist.especeId"  required>
                         <option *ngIf="!editForm.value.espece" [ngValue]="null" selected></option>
-                        <option [ngValue]="especeOption.id === classificationCronquist.espece?.id ? classificationCronquist.espece : especeOption" *ngFor="let especeOption of especes; trackBy: trackEspeceById">{{especeOption.name}}</option>
+                        <option [ngValue]="especeOption.id" *ngFor="let especeOption of especes; trackBy: trackEspeceById">{{especeOption.name}}</option>
                     </select>
                 </div>
                 <div [hidden]="!(editForm.controls.espece?.dirty && editForm.controls.espece?.invalid)">

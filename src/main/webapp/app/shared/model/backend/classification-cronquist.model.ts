@@ -1,16 +1,25 @@
-import { IOrdre } from 'app/shared/model/backend/ordre.model';
-import { IFamille } from 'app/shared/model/backend/famille.model';
-import { IGenre } from 'app/shared/model/backend/genre.model';
-import { IEspece } from 'app/shared/model/backend/espece.model';
-
 export interface IClassificationCronquist {
     id?: number;
-    ordre?: IOrdre;
-    famille?: IFamille;
-    genre?: IGenre;
-    espece?: IEspece;
+    ordreName?: string;
+    ordreId?: number;
+    familleName?: string;
+    familleId?: number;
+    genreName?: string;
+    genreId?: number;
+    especeName?: string;
+    especeId?: number;
 }
 
 export class ClassificationCronquist implements IClassificationCronquist {
-    constructor(public id?: number, public ordre?: IOrdre, public famille?: IFamille, public genre?: IGenre, public espece?: IEspece) {}
+    constructor(
+        public id?: number,
+        public ordreName?: string,
+        public ordreId?: number,
+        public familleName?: string,
+        public familleId?: number,
+        public genreName?: string,
+        public genreId?: number,
+        public especeName?: string,
+        public especeId?: number
+    ) {}
 }

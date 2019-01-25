@@ -6,24 +6,11 @@
             "fieldType": "String"
         }
     ],
-    "relationships": [
-        {
-            "relationshipType": "one-to-many",
-            "relationshipName": "recolte",
-            "otherEntityName": "recolte",
-            "otherEntityRelationshipName": "mois"
-        },
-        {
-            "relationshipType": "one-to-many",
-            "relationshipName": "floraison",
-            "otherEntityName": "floraison",
-            "otherEntityRelationshipName": "mois"
-        }
-    ],
+    "relationships": [],
     "changelogDate": "20190115185531",
     "entityTableName": "mois",
-    "dto": "no",
-    "pagination": "no",
+    "dto": "mapstruct",
+    "pagination": "pagination",
     "service": "serviceImpl",
     "jpaMetamodelFiltering": true,
     "fluentMethods": true,

@@ -1,12 +1,10 @@
-import { IReference } from 'app/shared/model/backend/reference.model';
-
 export interface IPageWeb {
     id?: number;
     description?: string;
     url?: string;
-    reference?: IReference;
+    referenceId?: number;
 }
 
 export class PageWeb implements IPageWeb {
-    constructor(public id?: number, public description?: string, public url?: string, public reference?: IReference) {}
+    constructor(public id?: number, public description?: string, public url?: string, public referenceId?: number) {}
 }

@@ -43,10 +43,10 @@ export class ReferenceUpdateComponent implements OnInit {
         });
         this.livreService.query({ 'referenceId.specified': 'false' }).subscribe(
             (res: HttpResponse<ILivre[]>) => {
-                if (!this.reference.livre || !this.reference.livre.id) {
+                if (!this.reference.livreId) {
                     this.livres = res.body;
                 } else {
-                    this.livreService.find(this.reference.livre.id).subscribe(
+                    this.livreService.find(this.reference.livreId).subscribe(
                         (subRes: HttpResponse<ILivre>) => {
                             this.livres = [subRes.body].concat(res.body);
                         },
@@ -58,10 +58,10 @@ export class ReferenceUpdateComponent implements OnInit {
         );
         this.pageWebService.query({ 'referenceId.specified': 'false' }).subscribe(
             (res: HttpResponse<IPageWeb[]>) => {
-                if (!this.reference.pageWeb || !this.reference.pageWeb.id) {
+                if (!this.reference.pageWebId) {
                     this.pagewebs = res.body;
                 } else {
-                    this.pageWebService.find(this.reference.pageWeb.id).subscribe(
+                    this.pageWebService.find(this.reference.pageWebId).subscribe(
                         (subRes: HttpResponse<IPageWeb>) => {
                             this.pagewebs = [subRes.body].concat(res.body);
                         },

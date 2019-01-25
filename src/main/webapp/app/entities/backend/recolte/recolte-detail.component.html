@@ -7,14 +7,14 @@
             <dl class="row-md jh-entity-details">
                 <dt><span>Plante</span></dt>
                 <dd>
-                    <div *ngIf="recolte.plante">
-                        <a [routerLink]="['/plante', recolte.plante?.id, 'view']">{{recolte.plante?.id}}</a>
+                    <div *ngIf="recolte.planteId">
+                        <a [routerLink]="['/plante', recolte.planteId, 'view']">{{recolte.planteId}}</a>
                     </div>
                 </dd>
                 <dt><span>Mois</span></dt>
                 <dd>
-                    <div *ngIf="recolte.mois">
-                        <a [routerLink]="['/mois', recolte.mois?.id, 'view']">{{recolte.mois?.id}}</a>
+                    <div *ngIf="recolte.moisId">
+                        <a [routerLink]="['/mois', recolte.moisId, 'view']">{{recolte.moisId}}</a>
                     </div>
                 </dd>
             </dl>

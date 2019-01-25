@@ -32,18 +32,6 @@
     ],
     "relationships": [
         {
-            "relationshipType": "one-to-many",
-            "relationshipName": "recolte",
-            "otherEntityName": "recolte",
-            "otherEntityRelationshipName": "plante"
-        },
-        {
-            "relationshipType": "one-to-many",
-            "relationshipName": "floraison",
-            "otherEntityName": "floraison",
-            "otherEntityRelationshipName": "plante"
-        },
-        {
             "relationshipType": "many-to-one",
             "relationshipValidateRules": "required",
             "relationshipName": "classificationCronquist",
@@ -104,8 +92,8 @@
     "changelogDate": "20190115185528",
     "javadoc": "@author Pierre TAQUET",
     "entityTableName": "plante",
-    "dto": "no",
-    "pagination": "no",
+    "dto": "mapstruct",
+    "pagination": "pagination",
     "service": "serviceImpl",
     "jpaMetamodelFiltering": true,
     "fluentMethods": true,

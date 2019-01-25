@@ -13,22 +13,21 @@
     <div class="table-responsive" *ngIf="plantes">
         <table class="table table-striped">
             <thead>
-            <tr>
-            <th><span>ID</span></th>
-            <th><span>Ph Min</span></th>
-            <th><span>Ph Max</span></th>
-            <th><span>Temp Min</span></th>
-            <th><span>Temp Max</span></th>
-            <th><span>Description</span></th>
-            <th><span>Classification Cronquist</span></th>
-            <th><span>Strate</span></th>
-            <th><span>Vitesse Croissance</span></th>
-            <th><span>Ensoleillement</span></th>
-            <th><span>Richesse Sol</span></th>
-            <th><span>Type Terre</span></th>
-            <th><span>Type Feuillage</span></th>
-            <th><span>Type Racine</span></th>
-            <th><span>Plant Common Name</span></th>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="phMin"><span>Ph Min</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="phMax"><span>Ph Max</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tempMin"><span>Temp Min</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tempMax"><span>Temp Max</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="description"><span>Description</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="classificationCronquistId"><span>Classification Cronquist</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="strateId"><span>Strate</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="vitesseCroissanceId"><span>Vitesse Croissance</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ensoleillementId"><span>Ensoleillement</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="richesseSolId"><span>Richesse Sol</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="typeTerreId"><span>Type Terre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="typeFeuillageId"><span>Type Feuillage</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="typeRacineId"><span>Type Racine</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
@@ -41,49 +40,44 @@
                 <td>{{plante.tempMax}}</td>
                 <td>{{plante.description}}</td>
                 <td>
-                    <div *ngIf="plante.classificationCronquist">
-                        <a [routerLink]="['../classification-cronquist', plante.classificationCronquist?.id, 'view' ]" >{{plante.classificationCronquist?.espece?.name}}</a>
+                    <div *ngIf="plante.classificationCronquistId">
+                        <a [routerLink]="['../classification-cronquist', plante.classificationCronquistId , 'view' ]" >{{plante.classificationCronquistId}}</a>
                     </div>
                 </td>
                 <td>
-                    <div *ngIf="plante.strate">
-                        <a [routerLink]="['../strate', plante.strate?.id, 'view' ]" >{{plante.strate?.id}}</a>
+                    <div *ngIf="plante.strateId">
+                        <a [routerLink]="['../strate', plante.strateId , 'view' ]" >{{plante.strateId}}</a>
                     </div>
                 </td>
                 <td>
-                    <div *ngIf="plante.vitesseCroissance">
-                        <a [routerLink]="['../vitesse-croissance', plante.vitesseCroissance?.id, 'view' ]" >{{plante.vitesseCroissance?.id}}</a>
+                    <div *ngIf="plante.vitesseCroissanceId">
+                        <a [routerLink]="['../vitesse-croissance', plante.vitesseCroissanceId , 'view' ]" >{{plante.vitesseCroissanceId}}</a>
                     </div>
                 </td>
                 <td>
-                    <div *ngIf="plante.ensoleillement">
-                        <a [routerLink]="['../ensoleillement', plante.ensoleillement?.id, 'view' ]" >{{plante.ensoleillement?.id}}</a>
+                    <div *ngIf="plante.ensoleillementId">
+                        <a [routerLink]="['../ensoleillement', plante.ensoleillementId , 'view' ]" >{{plante.ensoleillementId}}</a>
                     </div>
                 </td>
                 <td>
-                    <div *ngIf="plante.richesseSol">
-                        <a [routerLink]="['../richesse-sol', plante.richesseSol?.id, 'view' ]" >{{plante.richesseSol?.id}}</a>
+                    <div *ngIf="plante.richesseSolId">
+                        <a [routerLink]="['../richesse-sol', plante.richesseSolId , 'view' ]" >{{plante.richesseSolId}}</a>
                     </div>
                 </td>
                 <td>
-                    <div *ngIf="plante.typeTerre">
-                        <a [routerLink]="['../type-terre', plante.typeTerre?.id, 'view' ]" >{{plante.typeTerre?.id}}</a>
+                    <div *ngIf="plante.typeTerreId">
+                        <a [routerLink]="['../type-terre', plante.typeTerreId , 'view' ]" >{{plante.typeTerreId}}</a>
                     </div>
                 </td>
                 <td>
-                    <div *ngIf="plante.typeFeuillage">
-                        <a [routerLink]="['../type-feuillage', plante.typeFeuillage?.id, 'view' ]" >{{plante.typeFeuillage?.id}}</a>
+                    <div *ngIf="plante.typeFeuillageId">
+                        <a [routerLink]="['../type-feuillage', plante.typeFeuillageId , 'view' ]" >{{plante.typeFeuillageId}}</a>
                     </div>
                 </td>
                 <td>
-                    <div *ngIf="plante.typeRacine">
-                        <a [routerLink]="['../type-racine', plante.typeRacine?.id, 'view' ]" >{{plante.typeRacine?.id}}</a>
+                    <div *ngIf="plante.typeRacineId">
+                        <a [routerLink]="['../type-racine', plante.typeRacineId , 'view' ]" >{{plante.typeRacineId}}</a>
                     </div>
-                </td>
-                <td>
-                    <span *ngFor="let plantCommonName of plante.plantCommonNames; let last = last">
-                        <a class="form-control-static" [routerLink]="['../plant-common-name', plantCommonName?.id, 'view' ]">{{plantCommonName.commonName}}</a>{{last ? '' : ', '}}
-                    </span>
                 </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
@@ -112,5 +106,13 @@
             </tr>
             </tbody>
         </table>
+    </div>
+    <div *ngIf="plantes && plantes.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
     </div>
 </div>

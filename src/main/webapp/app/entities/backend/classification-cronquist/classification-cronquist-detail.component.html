@@ -7,26 +7,26 @@
             <dl class="row-md jh-entity-details">
                 <dt><span>Ordre</span></dt>
                 <dd>
-                    <div *ngIf="classificationCronquist.ordre">
-                        <a [routerLink]="['/ordre', classificationCronquist.ordre?.id, 'view']">{{classificationCronquist.ordre?.name}}</a>
+                    <div *ngIf="classificationCronquist.ordreId">
+                        <a [routerLink]="['/ordre', classificationCronquist.ordreId, 'view']">{{classificationCronquist.ordreName}}</a>
                     </div>
                 </dd>
                 <dt><span>Famille</span></dt>
                 <dd>
-                    <div *ngIf="classificationCronquist.famille">
-                        <a [routerLink]="['/famille', classificationCronquist.famille?.id, 'view']">{{classificationCronquist.famille?.name}}</a>
+                    <div *ngIf="classificationCronquist.familleId">
+                        <a [routerLink]="['/famille', classificationCronquist.familleId, 'view']">{{classificationCronquist.familleName}}</a>
                     </div>
                 </dd>
                 <dt><span>Genre</span></dt>
                 <dd>
-                    <div *ngIf="classificationCronquist.genre">
-                        <a [routerLink]="['/genre', classificationCronquist.genre?.id, 'view']">{{classificationCronquist.genre?.name}}</a>
+                    <div *ngIf="classificationCronquist.genreId">
+                        <a [routerLink]="['/genre', classificationCronquist.genreId, 'view']">{{classificationCronquist.genreName}}</a>
                     </div>
                 </dd>
                 <dt><span>Espece</span></dt>
                 <dd>
-                    <div *ngIf="classificationCronquist.espece">
-                        <a [routerLink]="['/espece', classificationCronquist.espece?.id, 'view']">{{classificationCronquist.espece?.name}}</a>
+                    <div *ngIf="classificationCronquist.especeId">
+                        <a [routerLink]="['/espece', classificationCronquist.especeId, 'view']">{{classificationCronquist.especeName}}</a>
                     </div>
                 </dd>
             </dl>

@@ -49,9 +49,6 @@ entity Plante {
 entity PlantCommonName {
 	commonName String
 }
-relationship ManyToMany {
-	Plante to PlantCommonName
-}
 entity Recolte {
 }
 entity Floraison {
@@ -90,6 +87,9 @@ entity PageWeb {
 	description String
 	url String
 }
+relationship ManyToMany {
+	Plante to PlantCommonName
+}
 relationship OneToMany {
 	InteractionPlantePlante to Reference
 }
@@ -117,14 +117,19 @@ relationship ManyToOne {
 	Plante{typeTerre} to TypeTerre
 	Plante{typeFeuillage} to TypeFeuillage
 	Plante{typeRacine} to TypeRacine
-}
-relationship OneToMany {
 	// Récolte et flo
-	Plante to Recolte{plante}
-	Mois to Recolte{mois}
-	Plante to Floraison{plante}
-	Mois to Floraison{mois}
+	Recolte{plante} to Plante
+	Recolte{mois} to Mois
+	Floraison{plante} to Plante
+	Floraison{mois} to Mois
 }
+//relationship OneToMany {
+	// Récolte et flo
+	// Plante to Recolte{plante}
+	// Mois to Recolte{mois}
+	// Plante to Floraison{plante}
+	// Mois to Floraison{mois}
+//}
 entity Strate {
 	strate String
 }
@@ -146,13 +151,16 @@ entity TypeFeuillage {
 entity TypeRacine {
 	typeRacine String
 }
- // Set pagination options
-//paginate JobHistory, Employee with infinite-scroll
-//paginate Job with pagination
+
+// Set pagination options
+paginate * with pagination
 
 // Set service options to all except few
-service all with serviceImpl
+service * with serviceImpl
+
+// In order to rest filtering
 filter *
-// Set an angular suffix
+dto * with mapstruct
+
 //angularSuffix * with mySuffix
 microservice * with backend

@@ -15,14 +15,14 @@
                 </dd>
                 <dt><span>De Plante</span></dt>
                 <dd>
-                    <div *ngIf="interactionPlantePlante.dePlante">
-                        <a [routerLink]="['/plante', interactionPlantePlante.dePlante?.id, 'view']">{{interactionPlantePlante.dePlante?.id}}</a>
+                    <div *ngIf="interactionPlantePlante.dePlanteId">
+                        <a [routerLink]="['/plante', interactionPlantePlante.dePlanteId, 'view']">{{interactionPlantePlante.dePlanteId}}</a>
                     </div>
                 </dd>
                 <dt><span>Vers Plante</span></dt>
                 <dd>
-                    <div *ngIf="interactionPlantePlante.versPlante">
-                        <a [routerLink]="['/plante', interactionPlantePlante.versPlante?.id, 'view']">{{interactionPlantePlante.versPlante?.id}}</a>
+                    <div *ngIf="interactionPlantePlante.versPlanteId">
+                        <a [routerLink]="['/plante', interactionPlantePlante.versPlanteId, 'view']">{{interactionPlantePlante.versPlanteId}}</a>
                     </div>
                 </dd>
             </dl>

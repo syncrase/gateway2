@@ -13,10 +13,10 @@
     <div class="table-responsive" *ngIf="recoltes">
         <table class="table table-striped">
             <thead>
-            <tr>
-            <th><span>ID</span></th>
-            <th><span>Plante</span></th>
-            <th><span>Mois</span></th>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="planteId"><span>Plante</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="moisId"><span>Mois</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
@@ -24,13 +24,13 @@
             <tr *ngFor="let recolte of recoltes ;trackBy: trackId">
                 <td><a [routerLink]="['/recolte', recolte.id, 'view' ]">{{recolte.id}}</a></td>
                 <td>
-                    <div *ngIf="recolte.plante">
-                        <a [routerLink]="['../plante', recolte.plante?.id, 'view' ]" >{{recolte.plante?.id}}</a>
+                    <div *ngIf="recolte.planteId">
+                        <a [routerLink]="['../plante', recolte.planteId , 'view' ]" >{{recolte.planteId}}</a>
                     </div>
                 </td>
                 <td>
-                    <div *ngIf="recolte.mois">
-                        <a [routerLink]="['../mois', recolte.mois?.id, 'view' ]" >{{recolte.mois?.id}}</a>
+                    <div *ngIf="recolte.moisId">
+                        <a [routerLink]="['../mois', recolte.moisId , 'view' ]" >{{recolte.moisId}}</a>
                     </div>
                 </td>
                 <td class="text-right">
@@ -60,5 +60,13 @@
             </tr>
             </tbody>
         </table>
+    </div>
+    <div *ngIf="recoltes && recoltes.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
     </div>
 </div>

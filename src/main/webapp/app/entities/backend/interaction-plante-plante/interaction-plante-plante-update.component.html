@@ -28,9 +28,9 @@
 
                 <div class="form-group">
                     <label class="form-control-label" for="field_dePlante">De Plante</label>
-                    <select class="form-control" id="field_dePlante" name="dePlante" [(ngModel)]="interactionPlantePlante.dePlante"  required>
+                    <select class="form-control" id="field_dePlante" name="dePlante" [(ngModel)]="interactionPlantePlante.dePlanteId"  required>
                         <option *ngIf="!editForm.value.dePlante" [ngValue]="null" selected></option>
-                        <option [ngValue]="planteOption.id === interactionPlantePlante.dePlante?.id ? interactionPlantePlante.dePlante : planteOption" *ngFor="let planteOption of plantes; trackBy: trackPlanteById">{{planteOption.id}}</option>
+                        <option [ngValue]="planteOption.id" *ngFor="let planteOption of plantes; trackBy: trackPlanteById">{{planteOption.id}}</option>
                     </select>
                 </div>
                 <div [hidden]="!(editForm.controls.dePlante?.dirty && editForm.controls.dePlante?.invalid)">
@@ -41,9 +41,9 @@
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_versPlante">Vers Plante</label>
-                    <select class="form-control" id="field_versPlante" name="versPlante" [(ngModel)]="interactionPlantePlante.versPlante"  required>
+                    <select class="form-control" id="field_versPlante" name="versPlante" [(ngModel)]="interactionPlantePlante.versPlanteId"  required>
                         <option *ngIf="!editForm.value.versPlante" [ngValue]="null" selected></option>
-                        <option [ngValue]="planteOption.id === interactionPlantePlante.versPlante?.id ? interactionPlantePlante.versPlante : planteOption" *ngFor="let planteOption of plantes; trackBy: trackPlanteById">{{planteOption.id}}</option>
+                        <option [ngValue]="planteOption.id" *ngFor="let planteOption of plantes; trackBy: trackPlanteById">{{planteOption.id}}</option>
                     </select>
                 </div>
                 <div [hidden]="!(editForm.controls.versPlante?.dirty && editForm.controls.versPlante?.invalid)">

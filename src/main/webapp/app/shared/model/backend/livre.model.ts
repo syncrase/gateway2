@@ -1,12 +1,10 @@
-import { IReference } from 'app/shared/model/backend/reference.model';
-
 export interface ILivre {
     id?: number;
     description?: string;
     isbn?: string;
     auteur?: string;
     page?: number;
-    reference?: IReference;
+    referenceId?: number;
 }
 
 export class Livre implements ILivre {
@@ -16,6 +14,6 @@ export class Livre implements ILivre {
         public isbn?: string,
         public auteur?: string,
         public page?: number,
-        public reference?: IReference
+        public referenceId?: number
     ) {}
 }

@@ -13,12 +13,12 @@
     <div class="table-responsive" *ngIf="references">
         <table class="table table-striped">
             <thead>
-            <tr>
-            <th><span>ID</span></th>
-            <th><span>Description</span></th>
-            <th><span>Livre</span></th>
-            <th><span>Page Web</span></th>
-            <th><span>Interaction Plante Plante</span></th>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="description"><span>Description</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="livreId"><span>Livre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="pageWebId"><span>Page Web</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="interactionPlantePlanteId"><span>Interaction Plante Plante</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
@@ -27,18 +27,18 @@
                 <td><a [routerLink]="['/reference', reference.id, 'view' ]">{{reference.id}}</a></td>
                 <td>{{reference.description}}</td>
                 <td>
-                    <div *ngIf="reference.livre">
-                        <a [routerLink]="['../livre', reference.livre?.id, 'view' ]" >{{reference.livre?.id}}</a>
+                    <div *ngIf="reference.livreId">
+                        <a [routerLink]="['../livre', reference.livreId , 'view' ]" >{{reference.livreId}}</a>
                     </div>
                 </td>
                 <td>
-                    <div *ngIf="reference.pageWeb">
-                        <a [routerLink]="['../page-web', reference.pageWeb?.id, 'view' ]" >{{reference.pageWeb?.id}}</a>
+                    <div *ngIf="reference.pageWebId">
+                        <a [routerLink]="['../page-web', reference.pageWebId , 'view' ]" >{{reference.pageWebId}}</a>
                     </div>
                 </td>
                 <td>
-                    <div *ngIf="reference.interactionPlantePlante">
-                        <a [routerLink]="['../interaction-plante-plante', reference.interactionPlantePlante?.id, 'view' ]" >{{reference.interactionPlantePlante?.id}}</a>
+                    <div *ngIf="reference.interactionPlantePlanteId">
+                        <a [routerLink]="['../interaction-plante-plante', reference.interactionPlantePlanteId , 'view' ]" >{{reference.interactionPlantePlanteId}}</a>
                     </div>
                 </td>
                 <td class="text-right">
@@ -68,5 +68,13 @@
             </tr>
             </tbody>
         </table>
+    </div>
+    <div *ngIf="references && references.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
     </div>
 </div>

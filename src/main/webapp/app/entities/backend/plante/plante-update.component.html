@@ -49,9 +49,9 @@
 
                 <div class="form-group">
                     <label class="form-control-label" for="field_classificationCronquist">Classification Cronquist</label>
-                    <select class="form-control" id="field_classificationCronquist" name="classificationCronquist" [(ngModel)]="plante.classificationCronquist"  required>
+                    <select class="form-control" id="field_classificationCronquist" name="classificationCronquist" [(ngModel)]="plante.classificationCronquistId"  required>
                         <option *ngIf="!editForm.value.classificationCronquist" [ngValue]="null" selected></option>
-                        <option [ngValue]="classificationCronquistOption.id === plante.classificationCronquist?.id ? plante.classificationCronquist : classificationCronquistOption" *ngFor="let classificationCronquistOption of classificationcronquists; trackBy: trackClassificationCronquistById">{{classificationCronquistOption.id}}</option>
+                        <option [ngValue]="classificationCronquistOption.id" *ngFor="let classificationCronquistOption of classificationcronquists; trackBy: trackClassificationCronquistById">{{classificationCronquistOption.id}}</option>
                     </select>
                 </div>
                 <div [hidden]="!(editForm.controls.classificationCronquist?.dirty && editForm.controls.classificationCronquist?.invalid)">
@@ -62,51 +62,51 @@
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_strate">Strate</label>
-                    <select class="form-control" id="field_strate" name="strate" [(ngModel)]="plante.strate" >
+                    <select class="form-control" id="field_strate" name="strate" [(ngModel)]="plante.strateId" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="strateOption.id === plante.strate?.id ? plante.strate : strateOption" *ngFor="let strateOption of strates; trackBy: trackStrateById">{{strateOption.id}}</option>
+                        <option [ngValue]="strateOption.id" *ngFor="let strateOption of strates; trackBy: trackStrateById">{{strateOption.id}}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_vitesseCroissance">Vitesse Croissance</label>
-                    <select class="form-control" id="field_vitesseCroissance" name="vitesseCroissance" [(ngModel)]="plante.vitesseCroissance" >
+                    <select class="form-control" id="field_vitesseCroissance" name="vitesseCroissance" [(ngModel)]="plante.vitesseCroissanceId" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="vitesseCroissanceOption.id === plante.vitesseCroissance?.id ? plante.vitesseCroissance : vitesseCroissanceOption" *ngFor="let vitesseCroissanceOption of vitessecroissances; trackBy: trackVitesseCroissanceById">{{vitesseCroissanceOption.id}}</option>
+                        <option [ngValue]="vitesseCroissanceOption.id" *ngFor="let vitesseCroissanceOption of vitessecroissances; trackBy: trackVitesseCroissanceById">{{vitesseCroissanceOption.id}}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_ensoleillement">Ensoleillement</label>
-                    <select class="form-control" id="field_ensoleillement" name="ensoleillement" [(ngModel)]="plante.ensoleillement" >
+                    <select class="form-control" id="field_ensoleillement" name="ensoleillement" [(ngModel)]="plante.ensoleillementId" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="ensoleillementOption.id === plante.ensoleillement?.id ? plante.ensoleillement : ensoleillementOption" *ngFor="let ensoleillementOption of ensoleillements; trackBy: trackEnsoleillementById">{{ensoleillementOption.id}}</option>
+                        <option [ngValue]="ensoleillementOption.id" *ngFor="let ensoleillementOption of ensoleillements; trackBy: trackEnsoleillementById">{{ensoleillementOption.id}}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_richesseSol">Richesse Sol</label>
-                    <select class="form-control" id="field_richesseSol" name="richesseSol" [(ngModel)]="plante.richesseSol" >
+                    <select class="form-control" id="field_richesseSol" name="richesseSol" [(ngModel)]="plante.richesseSolId" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="richesseSolOption.id === plante.richesseSol?.id ? plante.richesseSol : richesseSolOption" *ngFor="let richesseSolOption of richessesols; trackBy: trackRichesseSolById">{{richesseSolOption.id}}</option>
+                        <option [ngValue]="richesseSolOption.id" *ngFor="let richesseSolOption of richessesols; trackBy: trackRichesseSolById">{{richesseSolOption.id}}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_typeTerre">Type Terre</label>
-                    <select class="form-control" id="field_typeTerre" name="typeTerre" [(ngModel)]="plante.typeTerre" >
+                    <select class="form-control" id="field_typeTerre" name="typeTerre" [(ngModel)]="plante.typeTerreId" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="typeTerreOption.id === plante.typeTerre?.id ? plante.typeTerre : typeTerreOption" *ngFor="let typeTerreOption of typeterres; trackBy: trackTypeTerreById">{{typeTerreOption.id}}</option>
+                        <option [ngValue]="typeTerreOption.id" *ngFor="let typeTerreOption of typeterres; trackBy: trackTypeTerreById">{{typeTerreOption.id}}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_typeFeuillage">Type Feuillage</label>
-                    <select class="form-control" id="field_typeFeuillage" name="typeFeuillage" [(ngModel)]="plante.typeFeuillage" >
+                    <select class="form-control" id="field_typeFeuillage" name="typeFeuillage" [(ngModel)]="plante.typeFeuillageId" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="typeFeuillageOption.id === plante.typeFeuillage?.id ? plante.typeFeuillage : typeFeuillageOption" *ngFor="let typeFeuillageOption of typefeuillages; trackBy: trackTypeFeuillageById">{{typeFeuillageOption.id}}</option>
+                        <option [ngValue]="typeFeuillageOption.id" *ngFor="let typeFeuillageOption of typefeuillages; trackBy: trackTypeFeuillageById">{{typeFeuillageOption.id}}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" for="field_typeRacine">Type Racine</label>
-                    <select class="form-control" id="field_typeRacine" name="typeRacine" [(ngModel)]="plante.typeRacine" >
+                    <select class="form-control" id="field_typeRacine" name="typeRacine" [(ngModel)]="plante.typeRacineId" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="typeRacineOption.id === plante.typeRacine?.id ? plante.typeRacine : typeRacineOption" *ngFor="let typeRacineOption of typeracines; trackBy: trackTypeRacineById">{{typeRacineOption.id}}</option>
+                        <option [ngValue]="typeRacineOption.id" *ngFor="let typeRacineOption of typeracines; trackBy: trackTypeRacineById">{{typeRacineOption.id}}</option>
                     </select>
                 </div>
                 <div class="form-group">
