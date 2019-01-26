@@ -35,8 +35,4 @@ export class PlantCommonNameService {
     delete(id: number): Observable<HttpResponse<any>> {
         return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
     }
-
-    searchByPlantCommonName(term: string): Observable<EntityArrayResponseType> {
-        return this.http.get<IPlantCommonName[]>(`${this.resourceUrl}?commonName.contains=${term}`, { observe: 'response' });
-    }
 }

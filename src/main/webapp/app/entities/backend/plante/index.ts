@@ -1,4 +1,5 @@
 export * from './plante.service';
+export * from './plante-facade.service';
 export * from './plante-update.component';
 export * from './plante-delete-dialog.component';
 export * from './plante-detail.component';
