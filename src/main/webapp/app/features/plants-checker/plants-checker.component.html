@@ -1,6 +1,3 @@
-<!-- <p>
-  plants-checker works!
-</p> -->
 <div class="container">
 
     <!-- <div class="row">
@@ -27,24 +24,61 @@
 </div>
 <div class="row">
     Choix des plantes par pattern de nom commun :
-    <input #searchBox id="search-box" class="form-control form-control-lg form-control-borderless" (input)="searchPlantByPlantCommonName(searchBox.value)">
+    <input #searchBox id="search-box" class="form-control form-control-lg form-control-borderless" (input)="searchPlantByPlantCommonName(searchBox.value)"
+        (keyup.enter)="searchPlantByPlantCommonName(searchBox.value)">
+    <!-- (blur)="purgePlantResearch()" -->
     <ul class="search-result">
         <li *ngFor="let plante of plantes">
-            <a [routerLink]="['/plante', plante.id, 'view' ]">
+            <!-- <a [routerLink]="['/plante', plante.id, 'view' ]"> -->
+            <a (click)="addPlant(plante); searchBox.value = '';purgePlantResearch()">
                 <span *ngFor="let commonName of plante.plantCommonNames">
                     {{commonName.commonName}}
                 </span>
-                ({{plante.classificationCronquist?.espece?.name}})
+                <!-- ({{plante.classificationCronquist?.espece?.name}}) -->
             </a>
         </li>
     </ul>
 </div>
+<div class="row">
+    <!-- <ul class="selectedPlants">
+        <li *ngFor="let plante of selectedPlantes">
+            <a [routerLink]="['/plante', plante.id, 'view' ]">
+                <span class="badge">{{plante.id}}</span>
+                <span *ngFor="let commonName of plante.plantCommonNames">{{commonName.commonName}}</span>
+            </a>
+            <button class="delete" title="delete plant" (click)="deletePlant(plante)">x</button>
+        </li>
+    </ul>
+</div> -->
+
+<div class="row">
+    <ul class="selectedPlants">
+        <li *ngFor="let selectedPlant of listOfSelectedPlants">
+            <a [routerLink]="['/plante', selectedPlant.plante?.id, 'view' ]">
+                <span class="badge">{{selectedPlant.plante?.id}}</span>
+                <span *ngFor="let commonName of selectedPlant.plantCommonNames">{{commonName.commonName}}</span>
+                ({{selectedPlant.classificationCronquist?.especeName}})
+            </a>
+            <button class="delete" title="delete plant" (click)="deletePlant(plante)">x</button>
+        </li>
+    </ul>
+</div>
+
 
 <!--  -->
 <div class="row">
     <div class="col-md-6">
         Ici les interactions qui vont bien
         <!-- <jhi-plante></jhi-plante> -->
+        <li *ngFor="let interaction of goodInteractions">
+            <a [routerLink]="['/plante', interaction.id, 'view' ]">
+                <span class="badge">{{interaction.id}}</span>
+                <span *ngFor="let commonName of interaction.plantCommonNames">{{commonName.commonName}}</span>
+                ({{interaction.classificationCronquist?.especeName}})
+            </a>
+            <button class="delete" title="delete plant" (click)="deletePlant(plante)">x</button>
+        </li>
+
     </div>
     <div class="col-md-6">
         Ici les interactions qui vont pas
