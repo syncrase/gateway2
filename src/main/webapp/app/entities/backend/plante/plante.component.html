@@ -3,107 +3,145 @@
         <span>Plantes</span>
         <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-plante" [routerLink]="['/plante/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
-            <span >
-            Create new Plante
+            <span>
+                Create new Plante
             </span>
         </button>
     </h2>
     <jhi-alert></jhi-alert>
-    <br/>
+    <br />
     <div class="table-responsive" *ngIf="plantes">
         <table class="table table-striped">
             <thead>
-            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="phMin"><span>Ph Min</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="phMax"><span>Ph Max</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="tempMin"><span>Temp Min</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="tempMax"><span>Temp Max</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="description"><span>Description</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="classificationCronquistId"><span>Classification Cronquist</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="strateId"><span>Strate</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="vitesseCroissanceId"><span>Vitesse Croissance</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="ensoleillementId"><span>Ensoleillement</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="richesseSolId"><span>Richesse Sol</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="typeTerreId"><span>Type Terre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="typeFeuillageId"><span>Type Feuillage</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="typeRacineId"><span>Type Racine</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th></th>
-            </tr>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+                    <th jhiSortBy="id"><span>ID</span>
+                        <fa-icon [icon]="'sort'"></fa-icon>
+                    </th>
+                    <th><span>Common Name</span>
+                    </th>
+                    <th jhiSortBy="phMin"><span>Ph Min</span>
+                        <fa-icon [icon]="'sort'"></fa-icon>
+                    </th>
+                    <th jhiSortBy="phMax"><span>Ph Max</span>
+                        <fa-icon [icon]="'sort'"></fa-icon>
+                    </th>
+                    <th jhiSortBy="tempMin"><span>Temp Min</span>
+                        <fa-icon [icon]="'sort'"></fa-icon>
+                    </th>
+                    <th jhiSortBy="tempMax"><span>Temp Max</span>
+                        <fa-icon [icon]="'sort'"></fa-icon>
+                    </th>
+                    <th jhiSortBy="description"><span>Description</span>
+                        <fa-icon [icon]="'sort'"></fa-icon>
+                    </th>
+                    <th jhiSortBy="classificationCronquistId"><span>Classification Cronquist</span>
+                        <fa-icon [icon]="'sort'"></fa-icon>
+                    </th>
+                    <th jhiSortBy="strateId"><span>Strate</span>
+                        <fa-icon [icon]="'sort'"></fa-icon>
+                    </th>
+                    <th jhiSortBy="vitesseCroissanceId"><span>Vitesse Croissance</span>
+                        <fa-icon [icon]="'sort'"></fa-icon>
+                    </th>
+                    <th jhiSortBy="ensoleillementId"><span>Ensoleillement</span>
+                        <fa-icon [icon]="'sort'"></fa-icon>
+                    </th>
+                    <th jhiSortBy="richesseSolId"><span>Richesse Sol</span>
+                        <fa-icon [icon]="'sort'"></fa-icon>
+                    </th>
+                    <th jhiSortBy="typeTerreId"><span>Type Terre</span>
+                        <fa-icon [icon]="'sort'"></fa-icon>
+                    </th>
+                    <th jhiSortBy="typeFeuillageId"><span>Type Feuillage</span>
+                        <fa-icon [icon]="'sort'"></fa-icon>
+                    </th>
+                    <th jhiSortBy="typeRacineId"><span>Type Racine</span>
+                        <fa-icon [icon]="'sort'"></fa-icon>
+                    </th>
+                    <!-- <th>
+                        <span>Plant Common Names</span>
+                    </th> -->
+                    <th></th>
+                </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let plante of plantes ;trackBy: trackId">
-                <td><a [routerLink]="['/plante', plante.id, 'view' ]">{{plante.id}}</a></td>
-                <td>{{plante.phMin}}</td>
-                <td>{{plante.phMax}}</td>
-                <td>{{plante.tempMin}}</td>
-                <td>{{plante.tempMax}}</td>
-                <td>{{plante.description}}</td>
-                <td>
-                    <div *ngIf="plante.classificationCronquistId">
-                        <a [routerLink]="['../classification-cronquist', plante.classificationCronquistId , 'view' ]" >{{plante.classificationCronquistId}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="plante.strateId">
-                        <a [routerLink]="['../strate', plante.strateId , 'view' ]" >{{plante.strateId}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="plante.vitesseCroissanceId">
-                        <a [routerLink]="['../vitesse-croissance', plante.vitesseCroissanceId , 'view' ]" >{{plante.vitesseCroissanceId}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="plante.ensoleillementId">
-                        <a [routerLink]="['../ensoleillement', plante.ensoleillementId , 'view' ]" >{{plante.ensoleillementId}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="plante.richesseSolId">
-                        <a [routerLink]="['../richesse-sol', plante.richesseSolId , 'view' ]" >{{plante.richesseSolId}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="plante.typeTerreId">
-                        <a [routerLink]="['../type-terre', plante.typeTerreId , 'view' ]" >{{plante.typeTerreId}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="plante.typeFeuillageId">
-                        <a [routerLink]="['../type-feuillage', plante.typeFeuillageId , 'view' ]" >{{plante.typeFeuillageId}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="plante.typeRacineId">
-                        <a [routerLink]="['../type-racine', plante.typeRacineId , 'view' ]" >{{plante.typeRacineId}}</a>
-                    </div>
-                </td>
-                <td class="text-right">
-                    <div class="btn-group flex-btn-group-container">
-                        <button type="submit"
-                                [routerLink]="['/plante', plante.id, 'view' ]"
-                                class="btn btn-info btn-sm">
-                            <fa-icon [icon]="'eye'"></fa-icon>
-                            <span class="d-none d-md-inline">View</span>
-                        </button>
-                        <button type="submit"
-                                [routerLink]="['/plante', plante.id, 'edit']"
-                                class="btn btn-primary btn-sm">
-                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
-                            <span class="d-none d-md-inline">Edit</span>
-                        </button>
-                        <button type="submit"
-                                [routerLink]="['/', { outlets: { popup: 'plante/'+ plante.id + '/delete'} }]"
-                                replaceUrl="true"
-                                queryParamsHandling="merge"
-                                class="btn btn-danger btn-sm">
-                            <fa-icon [icon]="'times'"></fa-icon>
-                            <span class="d-none d-md-inline">Delete</span>
-                        </button>
-                    </div>
-                </td>
-            </tr>
+                <tr *ngFor="let plante of plantes ;trackBy: trackId">
+                    <td><a [routerLink]="['/plante', plante.id, 'view' ]">{{plante.id}}</a></td>
+                    <td>
+                        <span *ngFor="let commonName of plante.plantCommonNames">
+                            {{commonName.commonName}}
+                        </span>
+                    </td>
+                    <td>{{plante.phMin}}</td>
+                    <td>{{plante.phMax}}</td>
+                    <td>{{plante.tempMin}}</td>
+                    <td>{{plante.tempMax}}</td>
+                    <td>{{plante.description}}</td>
+                    <td>
+                        <div *ngIf="plante.classificationCronquistId">
+                            <a [routerLink]="['../classification-cronquist', plante.classificationCronquistId , 'view' ]">{{plante.classificationCronquistId}}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="plante.strateId">
+                            <a [routerLink]="['../strate', plante.strateId , 'view' ]">{{plante.strateId}}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="plante.vitesseCroissanceId">
+                            <a [routerLink]="['../vitesse-croissance', plante.vitesseCroissanceId , 'view' ]">{{plante.vitesseCroissanceId}}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="plante.ensoleillementId">
+                            <a [routerLink]="['../ensoleillement', plante.ensoleillementId , 'view' ]">{{plante.ensoleillementId}}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="plante.richesseSolId">
+                            <a [routerLink]="['../richesse-sol', plante.richesseSolId , 'view' ]">{{plante.richesseSolId}}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="plante.typeTerreId">
+                            <a [routerLink]="['../type-terre', plante.typeTerreId , 'view' ]">{{plante.typeTerreId}}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="plante.typeFeuillageId">
+                            <a [routerLink]="['../type-feuillage', plante.typeFeuillageId , 'view' ]">{{plante.typeFeuillageId}}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="plante.typeRacineId">
+                            <a [routerLink]="['../type-racine', plante.typeRacineId , 'view' ]">{{plante.typeRacineId}}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <!-- <div *ngIf="plante.plantCommonNames">
+                            <span *ngfor="let commonName in plante.plantCommonNames"> -->
+                        <!-- <a [routerLink]="['../plant-common-name', commonName.id , 'view' ]" >{{commonName.commonName}}</a> -->
+                        <!-- </span>
+                        </div> -->
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit" [routerLink]="['/plante', plante.id, 'view' ]" class="btn btn-info btn-sm">
+                                <fa-icon [icon]="'eye'"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+                            <button type="submit" [routerLink]="['/plante', plante.id, 'edit']" class="btn btn-primary btn-sm">
+                                <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+                            <button type="submit" [routerLink]="['/', { outlets: { popup: 'plante/'+ plante.id + '/delete'} }]"
+                                replaceUrl="true" queryParamsHandling="merge" class="btn btn-danger btn-sm">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -112,7 +150,8 @@
             <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
         </div>
         <div class="row justify-content-center">
-            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5"
+                [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
         </div>
     </div>
 </div>

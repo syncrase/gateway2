@@ -37,4 +37,8 @@ export class PlantCommonNameServiceFacade {
             observe: 'response'
         });
     }
+
+    searchCommonNames(term: string): Observable<IPlantCommonName[]> {
+        return this.http.get<IPlantCommonName[]>(`${this.plantCommonNameService.resourceUrl}?commonName.contains=${term}`);
+    }
 }

@@ -28,16 +28,23 @@
         (keyup.enter)="searchPlantByPlantCommonName(searchBox.value)">
     <!-- (blur)="purgePlantResearch()" -->
     <ul class="search-result">
-        <li *ngFor="let plante of plantes">
-            <!-- <a [routerLink]="['/plante', plante.id, 'view' ]"> -->
-            <a (click)="addPlant(plante); searchBox.value = '';purgePlantResearch()">
+        <li *ngFor="let plante of plantes$ | async">
+            <a [routerLink]="['/plante', plante.id, 'view' ]" (click)="addPlant(plante); searchBox.value = '';purgePlantResearch()">
                 <span *ngFor="let commonName of plante.plantCommonNames">
                     {{commonName.commonName}}
                 </span>
-                <!-- ({{plante.classificationCronquist?.espece?.name}}) -->
+                ({{plante.classificationCronquist?.espece?.name}})
             </a>
         </li>
     </ul>
+    <!-- Same result with observable
+    <ul class="search-result">
+        <li *ngFor="let plante of plantes$ | async">
+            <span *ngFor="let commonName of plante.plantCommonNames">
+                {{commonName.commonName}}
+            </span>
+        </li>
+    </ul> -->
 </div>
 <div class="row">
     <!-- <ul class="selectedPlants">
@@ -48,28 +55,36 @@
             </a>
             <button class="delete" title="delete plant" (click)="deletePlant(plante)">x</button>
         </li>
-    </ul>
-</div> -->
+    </ul>-->
 
-<div class="row">
+
+    <!-- Here, Observable test
+    <ul class="search-result">
+        <li *ngFor="let commonName of commonNames$ | async">
+            <span>
+                {{commonName.commonName}}
+            </span>
+        </li>
+    </ul> -->
+</div>
+
+<!-- <div class="row">
     <ul class="selectedPlants">
         <li *ngFor="let selectedPlant of listOfSelectedPlants">
             <a [routerLink]="['/plante', selectedPlant.plante?.id, 'view' ]">
                 <span class="badge">{{selectedPlant.plante?.id}}</span>
-                <span *ngFor="let commonName of selectedPlant.plantCommonNames">{{commonName.commonName}}</span>
+                <span *ngFor="let commonName of selectedPlant.plante.plantCommonNames">{{commonName.commonName}}</span>
                 ({{selectedPlant.classificationCronquist?.especeName}})
             </a>
             <button class="delete" title="delete plant" (click)="deletePlant(plante)">x</button>
         </li>
     </ul>
-</div>
+</div> -->
 
 
-<!--  -->
-<div class="row">
+<!-- <div class="row">
     <div class="col-md-6">
         Ici les interactions qui vont bien
-        <!-- <jhi-plante></jhi-plante> -->
         <li *ngFor="let interaction of goodInteractions">
             <a [routerLink]="['/plante', interaction.id, 'view' ]">
                 <span class="badge">{{interaction.id}}</span>
@@ -83,5 +98,4 @@
     <div class="col-md-6">
         Ici les interactions qui vont pas
     </div>
-</div>
-</div>
+</div> -->

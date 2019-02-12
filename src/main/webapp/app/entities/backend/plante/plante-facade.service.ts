@@ -41,4 +41,9 @@ export class PlanteServiceFacade {
         // ids = '1,2,3';
         return this.http.get<IPlante[]>(`${this.planteService.resourceUrl}?plantCommonNameId.in=${ids}`, { observe: 'response' });
     }
+
+    searchPlantsByPlantCommonNameIdsWithNoObserver(ids: string): Observable<IPlante[]> {
+        // ids = '1,2,3';
+        return this.http.get<IPlante[]>(`${this.planteService.resourceUrl}?plantCommonNameId.in=${ids}`);
+    }
 }
